@@ -1,0 +1,18 @@
+.not-found {
+  padding-bottom: 20px;
+  margin-top: var(--minNavbarHeight);
+  @media (max-width: 991px) {
+    margin-top: var(--maxNavbarHeight);
+  }
+  svg {
+    height: 400px !important;
+    width: 100%;
+    @media (max-width: 991px) {
+      height: 200px !important;
+    }
+  }
+  h4 {
+    font-weight: bold;
+    color: var(--mainColor);
+  }
+}

@@ -1,0 +1,24 @@
+image: alpine:latest
+
+before_script:
+  # Ubuntu
+  # - "which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )"
+  # Linux Alpine
+  - "which ssh-agent || ( apk update && apk add openssh )"
+  - eval $(ssh-agent -s)
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+  - mkdir -p ~/.ssh
+  - chmod 700 ~/.ssh
+  - ssh-keyscan -H "$FRONTEND_IP" > ~/.ssh/known_hosts
+  - chmod 644 ~/.ssh/known_hosts
+
+stages:
+  - deploy
+
+ssh_deploy:
+  stage: deploy
+  script:
+    - ssh ${FRONTEND_USER}@${FRONTEND_IP} "(test -d $CI_PROJECT_NAME || git clone $CI_REPOSITORY_URL $CI_PROJECT_NAME) && cd $CI_PROJECT_NAME && git fetch --all && git reset --hard origin/master"
+    - ssh ${FRONTEND_USER}@${FRONTEND_IP} "cd $CI_PROJECT_NAME && npm i && ./node_modules/.bin/ng build --prod && rm -rf ${FRONTEND_DEPLOY_DIR}/* && mv -v ./dist/* $FRONTEND_DEPLOY_DIR"
+  only:
+    - master

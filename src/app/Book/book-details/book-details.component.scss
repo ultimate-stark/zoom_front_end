@@ -1,0 +1,256 @@
+.book-details {
+  padding: 40px 0;
+  margin-top: var(--minNavbarHeight);
+  @media (max-width: 991px) {
+    margin-top: var(--maxNavbarHeight);
+  }
+  .book {
+    display: flex;
+    align-items: center;
+    @media (max-width: 991px) {
+      flex-direction: column;
+      text-align: center;
+    }
+    .book-img {
+      img {
+        width: 200px !important;
+        @media (max-width: 776px) {
+          width: 100px !important;
+          margin-top: 4px;
+        }
+      }
+      button {
+        display: block;
+        width: 100%;
+        margin-top: 10px !important;
+        @media (max-width: 767px) {
+          width: 100px;
+          font-size: 9px;
+          margin: auto;
+        }
+        @media (min-width: 768px) and (max-width: 991px) {
+          font-size: 13px;
+          font-weight: bold;
+        }
+      }
+    }
+    .about-book {
+      display: flex;
+      align-items: center;
+      @media (max-width: 991px) {
+        margin-top: 20px !important;
+      }
+      @media (min-width: 992px) {
+        margin-right: 60px;
+      }
+      .about-book-child {
+        padding: 0px 10px;
+        h2 {
+          font-weight: bold;
+          font-size: 22px;
+          color: #626262;
+          margin-bottom: 15px;
+        }
+        span {
+          color: #6fa1fc;
+          font-weight: 600;
+          letter-spacing: 1px;
+        }
+        p {
+          color: #707070;
+          font-weight: bold;
+          letter-spacing: 1px;
+          margin-top: 15px;
+          @media (min-width: 992px) {
+            font-size: 17px;
+            line-height: 30px;
+          }
+        }
+      }
+    }
+  }
+
+  // Mat
+  ::ng-deep {
+    audio {
+      outline: none;
+      @media (max-width: 577px) {
+        width: 250px;
+      }
+    }
+    // Start Book Shimmer
+    .book-shimmer {
+      .ngx-shimmer {
+        width: 200px !important;
+        height: 250px !important;
+      }
+    }
+    .book-shimmer-button {
+      .ngx-shimmer {
+        width: 200px !important;
+        height: 40px !important;
+      }
+    }
+    .book-shimmer-title {
+      .ngx-shimmer {
+        width: 100px !important;
+        height: 20px !important;
+      }
+    }
+    .book-shimmer-content {
+      .ngx-shimmer {
+        width: 300px !important;
+        height: 100px !important;
+      }
+    }
+    // End Book Shimmer
+
+    mat-tab-group {
+      margin: 80px 0;
+      mat-ink-bar {
+        background-color: var(--mainColor) !important;
+      }
+      .mat-tab-label-content {
+        font-weight: bold;
+        font-size: 18px;
+        color: #363636;
+        font-family: "Tajawal", sans-serif !important;
+        @media (max-width: 768px) {
+          font-size: 13px;
+        }
+      }
+    }
+    mat-expansion-panel-header {
+      padding-left: 10px !important;
+    }
+
+    .mat-tab-body-content,
+    .ng-trigger,
+    .ng-trigger-translateTab {
+      // overflow-x: hidden;
+      display: flex;
+      align-items: center;
+      h6 {
+        margin: 0;
+        margin-top: 10px;
+        font-weight: bold;
+        font-family: "Tajawal", sans-serif !important;
+      }
+    }
+
+    .mat-tab-header-pagination {
+      display: none;
+    }
+    // Audios
+    .audios {
+      margin-top: 20px;
+      h4 {
+        font-weight: bold;
+        margin-top: 10px;
+        font-family: "Tajawal", sans-serif;
+        color: var(--mainColor);
+        @media (max-width: 991px) {
+          font-size: 20px;
+        }
+      }
+      .audio {
+        display: flex;
+        align-items: center;
+        &:not(:last-child) {
+          margin-bottom: 20px;
+        }
+        @media (max-width: 991px) {
+          display: block;
+          margin-bottom: 25px;
+        }
+        h6 {
+          @media (max-width: 991px) {
+            margin-bottom: 10px;
+          }
+          @media (min-width: 778px) {
+            width: 220px;
+          }
+        }
+      }
+    }
+    // Start Audios Shimmer
+
+    .audio-shimmer-name {
+      .ngx-shimmer {
+        width: 200px !important;
+        height: 40px !important;
+      }
+    }
+    .book-shimmer-audio {
+      .ngx-shimmer {
+        width: 400px !important;
+        height: 50px !important;
+      }
+    }
+    // End Audios Shimmer
+
+    .aboutSearch {
+      z-index: 9999999;
+      width: 100%;
+      overflow: hidden;
+      background-color: #fff;
+      h4 {
+        font-weight: bold;
+        margin-top: 10px;
+        font-family: "Tajawal", sans-serif;
+        color: var(--mainColor);
+        @media (max-width: 991px) {
+          font-size: 20px;
+        }
+      }
+      mat-expansion-panel {
+        box-shadow: 1px 1px 10px var(--mainColor);
+        // Header
+        .mat-expansion-panel-header {
+          padding: 0;
+          height: 120px !important;
+          padding-left: 25px;
+          mat-panel-title {
+            margin: 0 !important;
+            align-items: center;
+            img {
+              width: 70px;
+            }
+            .about-search-header-content {
+              margin-right: 10px;
+              font-family: "Tajawal", sans-serif !important;
+              h6 {
+                font-weight: bold;
+                color: #535353;
+              }
+            }
+          }
+          .mat-expansion-indicator {
+            &:after {
+              color: var(--mainColor) !important;
+            }
+          }
+        }
+        // Body
+        .mat-expansion-panel-content {
+          height: 100px;
+          display: block;
+          .mat-expansion-panel-body {
+            margin-bottom: 5px;
+            box-shadow: 2px 6px 9px var(--secColor);
+            padding: 0 !important;
+            height: 100%;
+            .content {
+              font-family: "Tajawal", sans-serif !important;
+              padding: 10px;
+              height: 100%;
+              @media (max-width: 991px) {
+                padding: 1px 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

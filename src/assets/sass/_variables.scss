@@ -1,0 +1,19 @@
+:root {
+  // Color Variables
+  --mainColor: #3c3c3c;
+  --secColor: #686868;
+  --inputFocusColor: #c4c4c4;
+
+  // Rgba
+  --rgbaMainColor: rgba(60, 60, 60, 1);
+  --rgbaSecColor: rgba(104, 104, 104, 0.6);
+  --rgbaInputFocusColor: rgba(196, 196, 196, 0.3);
+
+  // Heights
+  --minNavbarHeight: 76px;
+  --maxNavbarHeight: 56px;
+
+  // Admin Variables
+  --sidebarWidth: 250px;
+  --sidebarMaxMobile: 85px;
+}

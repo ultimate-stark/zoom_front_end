@@ -1,0 +1,44 @@
+<div class="wrapper rtl">
+
+
+  <div *ngFor="let image of images">
+    <img [src]="image.image" alt="">
+  </div>
+  <app-admin-layout></app-admin-layout>
+  <div class="change-logo rtl" *ngIf="logoIsUploaded == false">
+    <div class="container">
+      <h2 class="h1 animated fadeInDown">أضف اللوجو الذي تريده</h2>
+      <!-- <div class="file mt-3">
+        <input type="file" hidden #fileInput accept="image/*" (change)="addFileByChoose(fileInput, result)">
+        <button (click)="fileInput.click()">أرفق الملف</button>
+      </div>
+      <div class="result" *ngIf="img !== ''">
+        <img #result [src]="img" alt="">
+      </div> -->
+      <form [formGroup]="form" (submit)="onSaveImage()" >
+      <div>
+        <button mat-stroked-button type="button" (click)="filePicker.click()">Pick Image</button>
+        <input type="file" #filePicker (change)="onImagePicked($event)">
+      </div>
+      <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
+        <img [src]="imagePreview" alt="">
+      </div>
+      <button mat-raised-button color="accent" type="submit">اتمام العملية</button>
+    </form>
+      <!-- <button class="mt-3" (click)="uploadLogo()" *ngIf="img !== ''">اتمام العملية</button> -->
+    </div>
+  </div>
+  <div class="is-loading">
+    <div class="loading" *ngIf="logoIsUploaded == true">
+      <h2>
+        برجاء الانتظار.. يتم يتم التسجيل الان
+      </h2>
+      <div class="lds-ellipsis">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,66 @@
+@import "../../../assets/sass/placeholder";
+.wrapper {
+  @extend %table;
+  min-height: calc(100vh - 56px);
+  .not-found-users {
+    display: flex;
+    padding: 40px 0;
+    justify-content: center;
+    h2 {
+      color: #6e6e6e;
+      font-weight: bold;
+      text-shadow: 1px 1px 20px #b2b2b2;
+      @media (max-width: 991px) {
+        font-size: 22px;
+      }
+    }
+  }
+  .table {
+    tbody {
+      tr {
+        cursor: auto !important;
+      }
+    }
+  }
+  .search {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+    label {
+      margin: 0;
+      margin-left: 10px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+    input {
+      width: 400px;
+    }
+  }
+}
+::ng-deep {
+  .modal-content {
+    top: 150px !important;
+    direction: rtl;
+    .modal-header {
+      align-items: center;
+      button {
+        padding: 0;
+        margin: 0;
+        outline: none;
+        color: var(--mainColor);
+      }
+    }
+    .modal-footer {
+      .btn {
+        width: 80px;
+      }
+    }
+  }
+  .mat-paginator-container {
+    justify-content: flex-start !important;
+    .mat-paginator-range-actions {
+      direction: ltr;
+    }
+  }
+}

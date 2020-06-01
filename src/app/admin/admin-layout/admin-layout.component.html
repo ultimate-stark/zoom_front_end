@@ -1,0 +1,56 @@
+<aside>
+  <h2 class="h1 animated fadeInDown">المشرف</h2>
+  <hr class="divider">
+  <ul>
+    <li class="animated fadeInRight" routerLink="/admin" routerLinkActive="activeAdminLink"
+      [routerLinkActiveOptions]="{ exact: true }">
+      <a>
+        <i class="fas fa-tachometer-alt"></i>
+        <span>لوحة التحكم</span>
+      </a>
+    </li>
+    <hr class="divider">
+    <h6 class="animated fadeIn">الكتب</h6>
+    <li class="animated fadeInRight" routerLink="/admin/create" routerLinkActive="activeAdminLink" title="اضف كتاب">
+      <a>
+        <i class="fas fa-plus-square"></i>
+        <span>أضف كتاب</span>
+      </a>
+    </li>
+    <li class="animated fadeInRight" routerLink="/admin/create-books" routerLinkActive="activeAdminLink"
+      title="أدرج كل الكتب">
+      <a>
+        <i class="fas fa-folder-plus"></i>
+        <span>أدرج كل الكتب</span>
+      </a>
+    </li>
+    <li class="animated fadeInRight" routerLink="/admin/books" routerLinkActive="activeAdminLink" title="ادارة الكتب">
+      <a>
+        <i class="fas fa-book"></i>
+        <span>ادارة الكتب</span>
+      </a>
+    </li>
+    <h6 class="animated fadeIn">المستخدمين</h6>
+    <li class="animated fadeInRight" routerLink="/admin/add-user" routerLinkActive="activeAdminLink" title="اضف مستخدم">
+      <a>
+        <i class="fas fa-user-plus"></i>
+        <span>اضف مستخدم</span>
+      </a>
+    </li>
+    <li class="animated fadeInRight" routerLink="/admin/users" routerLinkActive="activeAdminLink"
+      title="ادارة المستخدمين">
+      <a>
+        <i class="fas fa-users"></i>
+        <span>ادارة المستخدمين</span>
+      </a>
+    </li>
+    <!-- <h6 class="animated fadeIn">التغييرات</h6>
+    <li class="animated fadeInRight" routerLink="/admin/change-logo" routerLinkActive="activeAdminLink"
+      title="تغيير اللوجو">
+      <a>
+        <i class="fas fa-exchange-alt"></i>
+        <span>تغيير اللوجو</span>
+      </a>
+    </li> -->
+  </ul>
+</aside>

@@ -1,0 +1,12 @@
+<div class="color-boxs text-center animated fadeIn" #colorBox>
+  <div class="spin" (click)="toggleColorSpin(colorBox)">
+    <i class="fas fa-cog"></i>
+  </div>
+  <h5>اختر اللون الذي يعجبك</h5>
+  <ul class="list-unstyled" #viewBoxs>
+    <li class="activeBox" (click)="setDarkTheme()"></li>
+    <li (click)="setBlueTheme()"></li>
+    <li (click)="setGreenTheme()"></li>
+    <li (click)="setPurpleTheme()"></li>
+  </ul>
+</div>

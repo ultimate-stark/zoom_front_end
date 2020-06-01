@@ -1,0 +1,108 @@
+@import "../../assets/sass/placeholder";
+.search {
+  min-height: calc(100vh - 70px);
+  margin-top: var(--minNavbarHeight);
+  @media (max-width: 991px) {
+    margin-top: var(--maxNavbarHeight);
+  }
+  h2 {
+    font-size: 33px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    @media (max-width: 991px) {
+      letter-spacing: 0px;
+      font-size: 20px;
+    }
+  }
+  .book-search {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    margin-bottom: 20px;
+    &:hover {
+      box-shadow: 1px 1px 9px 1px var(--mainColor);
+      .overlay {
+        transform: translateY(0);
+      }
+      img {
+        transform: scale(1.2);
+      }
+    }
+    img {
+      width: 100%;
+      height: 400px;
+      transition: all 5s ease-out;
+      @media (max-width: 577px) {
+        height: 200px;
+      }
+      @media (min-width: 578px) and (max-width: 991px) {
+        height: 250px;
+      }
+    }
+    .overlay {
+      transition: all 0.5s ease-in-out;
+      @extend %overlay;
+      padding: 10px;
+      height: 150px;
+      transform: translateY(100%);
+      h4 {
+        @media (max-width: 991px) {
+          font-size: 17px;
+          font-weight: bold;
+          letter-spacing: 1px;
+        }
+      }
+      p {
+        @media (max-width: 991px) {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  .related-books {
+    padding: 60px 0;
+    .book {
+      outline: none;
+      cursor: pointer;
+      &:hover {
+        .related-book {
+          box-shadow: 0px 0px 5px #b2b2b2;
+        }
+      }
+    }
+    .related-book {
+      transition: all 0.3s ease-in;
+      border-radius: 5px;
+      background-color: #f6f6f6;
+      padding: 10px;
+      display: flex;
+      margin-bottom: 20px;
+      img {
+        border-radius: 5px;
+        width: 90px !important;
+        height: 120px !important;
+      }
+      .about-book {
+        padding-right: 10px;
+        padding-top: 10px;
+        display: block;
+        h5,
+        h6,
+        p {
+          color: var(--mainColor);
+        }
+        h5 {
+          font-weight: bold;
+          font-size: 16px;
+        }
+        h6 {
+          font-size: 14px;
+        }
+        p {
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

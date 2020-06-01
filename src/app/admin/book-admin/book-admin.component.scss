@@ -1,0 +1,60 @@
+@import "../../../assets/sass/placeholder";
+.wrapper {
+  @extend %table;
+  // min-height: calc(100vh - var(--minNavbarHeight));
+  .no-books {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 0;
+    @media (max-width: 991px) {
+      font-size: 18px;
+    }
+  }
+}
+::ng-deep {
+  mat-paginator {
+    direction: ltr;
+  }
+}
+// Modal
+::ng-deep {
+  .modal-content {
+    @media (max-width: 991px) {
+      width: 300px;
+      margin: auto;
+    }
+  }
+  .modal-content {
+    top: 150px !important;
+    direction: rtl;
+    .modal-header {
+      align-items: center;
+      button {
+        padding: 0;
+        margin: 0;
+        outline: none;
+        color: var(--mainColor);
+      }
+    }
+    .modal-footer {
+      .btn {
+        width: 80px;
+      }
+    }
+  }
+
+  // Shimmer
+  .input-shimmer {
+    .ngx-shimmer {
+      width: 400px !important;
+      height: 38px !important;
+    }
+  }
+  .label-shimmer {
+    .ngx-shimmer {
+      width: 50px !important;
+      height: 35px !important;
+    }
+  }
+}

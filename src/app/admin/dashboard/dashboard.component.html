@@ -1,0 +1,33 @@
+<div class="wrapper rtl">
+  <app-admin-layout></app-admin-layout>
+  <div class="dashboard">
+    <div class="container">
+      <h2>لوحة التحكم</h2>
+      <div class="row animated justify-content-center text-center">
+        <div class="col-md-6 col-12">
+          <div class="box" routerLink="/admin/books">
+            <div class="about-box">
+              <i class="fas fa-book"></i>
+            </div>
+            <div class="box-title">
+              <h4>عدد الكتب</h4>
+              <h6 *ngIf="booksLength !== 0">{{ booksLength }}</h6>
+              <h6 *ngIf="booksLength == 0">0</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-12">
+          <div class="box" routerLink="/admin/users">
+            <div class="about-box">
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="box-title">
+              <h4>عدد المستخدمين</h4>
+              <h6 *ngIf="usersLength !== 0">{{ usersLength }}</h6>
+              <h6 *ngIf="usersLength == 0">0</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

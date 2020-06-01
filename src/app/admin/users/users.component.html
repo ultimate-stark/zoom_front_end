@@ -1,0 +1,217 @@
+<div class="wrapper rtl">
+  <app-admin-layout></app-admin-layout>
+  <div class="main-table">
+    <h2 class="not-found-users" *ngIf="users.length == 0 && isLoading == false">لا يوجد مستخدمين هنا</h2>
+    <!--Start Table Shimmer-->
+    <table class="table loading" *ngIf="users.length !== 0 && isLoading == true">
+      <thead>
+        <tr>
+          <th class="animated fadeIn" scope="col">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <th class="animated fadeIn" scope="col">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <th class="animated fadeIn" scope="col">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <th class="animated fadeIn" scope="col">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <th class="animated fadeIn" scope="col">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <th class="animated fadeIn" scope="col">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="animated fadeInUp">
+          <th scope="row">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+        </tr>
+        <tr class="animated fadeInUp">
+          <th scope="row">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+        </tr>
+        <tr class="animated fadeInUp">
+          <th scope="row">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+        </tr>
+        <tr class="animated fadeInUp">
+          <th scope="row">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+        </tr>
+        <tr class="animated fadeInUp">
+          <th scope="row">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+        </tr>
+        <tr class="animated fadeInUp">
+          <th scope="row">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+        </tr>
+        <tr class="animated fadeInUp">
+          <th scope="row">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!--End Table Shimmer-->
+    <table class="table" *ngIf="users.length !== 0 && isLoading == false">
+      <thead>
+        <tr>
+          <th class="animated fadeIn" scope="col">#</th>
+          <th class="animated fadeIn" scope="col">الأسم</th>
+          <th class="animated fadeIn" scope="col">ايميل المستخدم</th>
+          <th class="animated fadeIn" scope="col">الرقم السري</th>
+          <th class="animated fadeIn" scope="col">تعديل</th>
+          <th class="animated fadeIn" scope="col">مسح</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td>{{ user.name }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.password }}</td>
+          <td [routerLink]="['/admin/edit-user', user.id]">
+            <a><i class="far fa-edit"></i></a>
+          </td>
+          <td (click)="onDelete(modal, user.id, user.email)">
+            <a><i class="far fa-trash-alt"></i></a>
+          </td>
+          <ng-template #modal let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">ازالة {{user.email}}</h4>
+              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body rtl">
+              هل حقا تريد ازالة {{user.email }} ؟
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" (click)="modal.dismiss('cancel click')">لا</button>
+              <button type="button" class="btn btn-danger mr-2" (click)="modal.close('ok click')">نعم</button>
+            </div>
+          </ng-template>
+        </tr>
+      </tbody>
+    </table>
+    <mat-paginator [length]="totalUsers" [pageSize]="usersPerPage" [pageSizeOptions]="pageSizeOptions"
+      (page)="onChangedPage($event)" *ngIf="users.length > 20  && isLoading == false"></mat-paginator>
+  </div>
+</div>

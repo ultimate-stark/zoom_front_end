@@ -1,0 +1,19 @@
+@import "../../../assets/sass/variables";
+@import "../../../assets/sass/placeholder";
+.login {
+  padding: 60px;
+  min-height: 600px;
+  margin-top: var(--minNavbarHeight);
+  @media (max-width: 991px) {
+    margin-top: var(--maxNavbarHeight);
+  }
+  form {
+    @extend %form;
+    @media (min-width: 992px) {
+      margin-top: 90px;
+    }
+    button[disabled] {
+      background-color: var(--secColor);
+    }
+  }
+}

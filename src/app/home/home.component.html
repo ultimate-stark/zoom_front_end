@@ -1,0 +1,46 @@
+<!--Start Home-->
+<div class="home-page">
+  <!--Start Home Carousel-->
+  <div class="home-carousel animated fadeIn">
+    <div class="items" #homeCarousel>
+      <div class="item activeHomeCarousel">
+        <div class="overlay">
+          <div class="about-item">
+            <div class="content animated fadeInUp">
+              <h2 class="h1">باقة جديدة من الكتب و المخطوطات بأنتظارك !</h2>
+              <p>أكثر من {{ booksLength }} كتاب عربي ينتظرونك</p>
+            </div>
+            <button class="animated fadeIn" routerLink="/books-list">شاهد الكتب الأن</button>
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="overlay">
+          <div class="about-item">
+            <div class="content animated fadeInUp">
+              <h2 class="h1">ادخل على الكتب للتعرف على المزيد</h2>
+              <p>أكثر من {{ booksLength }} كتاب عربي ينتظرونك</p>
+            </div>
+            <button class=" animated fadeIn" routerLink="/books-list">شاهد الكتب الأن</button>
+
+          </div>
+        </div>
+      </div>
+      <div class="item">
+        <div class="overlay">
+          <div class="about-item">
+            <div class="content animated fadeInUp">
+              <h2 class="h1">لا تفوت الفرصة ابدأ الان !</h2>
+              <p>أكثر من {{ booksLength }} كتاب عربي ينتظرونك</p>
+            </div>
+            <button class=" animated fadeIn" routerLink="/books-list">شاهد الكتب الأن</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <i class="fas fa-chevron-left" (click)="carouselLeftFn()"></i>
+    <i class="fas fa-chevron-right" (click)="carouselRightFn()"></i>
+  </div>
+</div>
+<!--End Home-->

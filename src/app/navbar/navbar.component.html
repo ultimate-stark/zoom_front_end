@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg fixed-top" #mainNavbar>
+  <div class="container">
+    <!-- <a class="navbar-brand animated fadeInDown" routerLink="">مكتبتي</a> -->
+    <a class="navbar-brand animated fadeInDown" routerLink=""><img src="./../../assets/imgs/book-01-01.png"
+        style="width:50px;height: 50px;" alt=""></a>
+    <div class="burger animated fadeInDown" #burger (click)="toggleNav(burger, navbarCollapse)">
+      <div class="burger-top"></div>
+      <div class="burger-middle"></div>
+      <div class="burger-bottom"></div>
+    </div>
+    <div class="navbar-collapse animated fadeInDown" #navbarCollapse>
+      <ul class="navbar-nav" #navbarNav>
+        <li class="nav-item input-search" *ngIf="adminPosition == false">
+          <a class="nav-link">
+            <i class="fas fa-search" (click)="filter(input.value)"></i>
+            <input type="text" placeholder="ابحث الذي تريده" #input (keyup.enter)="filter($event)">
+          </a>
+        </li>
+        <li class="nav-item button-over" *ngIf="adminPosition == false" #buttonOver
+          (click)="toggleBtnOver(aboutOver, buttonOver)">
+          <a class="nav-link">
+            بحث متقدم
+            <div class="about-over" #aboutOver>
+              <ul class="list-unstyled">
+                <li class="form-group">
+                  <label>ابحث بأسم المؤلف</label>
+                  <i class="fas fa-search" (click)="filter(inputAuthor.value)"></i>
+                  <input class="form-control" type="text" #inputAuthor (keyup.enter)="filter($event)">
+                </li>
+                <li class="form-group">
+                  <label>ابحث بأسم الكتاب</label>
+                  <i class="fas fa-search" (click)="filter(inputTitle.value)"></i>
+                  <input class="form-control" type="text" #inputTitle (keyup.enter)="filter($event)">
+                </li>
+                <li class="form-group">
+                  <label>ابحث بأسم المحقق</label>
+                  <i class="fas fa-search" (click)="filter(inputCategory.value)"></i>
+                  <input class="form-control" type="text" #inputCategory (keyup.enter)="filter($event)">
+                </li>
+                <li class="form-group">
+                  <label>ابحث بأسم دار النشر</label>
+                  <i class="fas fa-search" (click)="filter(inputpublishers.value)"></i>
+                  <input class="form-control" type="text" #inputpublishers (keyup.enter)="filter($event)">
+                </li>
+              </ul>
+            </div>
+          </a>
+        </li>
+        <li class="nav-item" routerLink="/books-list" routerLinkActive="active-link"
+          [routerLinkActiveOptions]="{exact: true}" (click)="toggleNav(burger, navbarCollapse)">
+          <a class="nav-link">الكتب</a>
+        </li>
+        <li class="nav-item" routerLink="admin" routerLinkActive="active-link"
+          (click)="toggleNav(burger, navbarCollapse)">
+          <a class="nav-link" *ngIf="userIsAuthenticated">لوحة التحكم</a>
+        </li>
+        <li class="nav-item" routerLink="auth/login" routerLinkActive="active-link"
+          (click)="toggleNav(burger, navbarCollapse)">
+          <a class="nav-link" *ngIf="!userIsAuthenticated">الدخول</a>
+        </li>
+        <li class="nav-item" routerLinkActive="active-link" (click)="onLogout()" *ngIf="userIsAuthenticated">
+          <a class="nav-link">الخروج</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

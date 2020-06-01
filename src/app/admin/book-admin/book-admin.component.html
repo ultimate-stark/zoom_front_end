@@ -1,0 +1,201 @@
+<div class="wrapper rtl">
+  <app-admin-layout></app-admin-layout>
+  <div class="main-table">
+    <h3 class="no-books" *ngIf="booksService.isLoading == false && booksLength == 0">لا يوجد كتب حاليا</h3>
+    <!--Start Table Shimmer-->
+    <table class="table loading" *ngIf="booksService.isLoading == true">
+      <thead>
+        <tr>
+          <th class="animated fadeIn" scope="col">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <th class="animated fadeIn" scope="col">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <th class="animated fadeIn" scope="col">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <th class="animated fadeIn" scope="col">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <th class="animated fadeIn" scope="col">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <th class="animated fadeIn" scope="col">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="animated fadeInUp">
+          <th scope="row">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+        </tr>
+        <tr class="animated fadeInUp">
+          <th scope="row">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+        </tr>
+        <tr class="animated fadeInUp">
+          <th scope="row">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+        </tr>
+        <tr class="animated fadeInUp">
+          <th scope="row">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+        </tr>
+        <tr class="animated fadeInUp">
+          <th scope="row">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+        </tr>
+        <tr class="animated fadeInUp">
+          <th scope="row">
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </th>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+          <td>
+            <ngx-shimmer-loading [shape]="'square'" [width]="'50px'"></ngx-shimmer-loading>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!--End Table Shimmer-->
+    <table class="table" *ngIf="booksService.isLoading == false && booksLength !== 0">
+      <thead>
+        <tr>
+          <th class="animated fadeIn" scope="col">#</th>
+          <th class="animated fadeIn" scope="col">الصورة</th>
+          <th class="animated fadeIn" scope="col">الأسم</th>
+          <th class="animated fadeIn" scope="col">المؤلف</th>
+
+          <th class="animated fadeIn" scope="col">تعديل</th>
+          <th class="animated fadeIn" scope="col">مسح</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="animated fadeIn" *ngFor="let book of books; index as i">
+          <th scope="row" [routerLink]="['/bookDetails', book.id]">{{ i + 1 }}</th>
+          <td [routerLink]="['/bookDetails', book.id]"><img [src]="book.coverImage" alt=""></td>
+          <td [routerLink]="['/bookDetails', book.id]">
+            {{ (book.title.length > 30) ? (book.title | slice:0:30) + '...' : book.title }}</td>
+          <td [routerLink]="['/bookDetails', book.id]">
+            {{ (book.author.length > 30) ? (book.author | slice:0:30) + '...' : book.author }}</td>
+
+          <td [routerLink]="['/admin/books/edit', book.id]" title="تعديل الكتاب">
+            <i class="far fa-edit"></i>
+          </td>
+          <td (click)="onDelete(modal, book.id, book.title)" title="ازالة الكتاب">
+            <i class="far fa-trash-alt"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <mat-paginator [length]="totalBooks" [pageSize]="booksPerPage" [pageSizeOptions]="pageSizeOptions"
+      (page)="onChangedPage($event)" *ngIf="booksLength !== 0 && booksLength > 11"></mat-paginator>
+  </div>
+</div>
+<ng-template #modal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">ازالة الكتاب</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body rtl">
+    هل حقا تريد ازالة الكتاب ؟
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-primary" (click)="modal.dismiss('cancel click')">لا</button>
+    <button type="button" class="btn btn-danger mr-2" (click)="modal.close('ok click')">نعم</button>
+  </div>
+</ng-template>

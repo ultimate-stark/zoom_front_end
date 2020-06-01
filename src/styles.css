@@ -1,0 +1,30 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Tajawal", sans-serif;
+  overflow-x: hidden;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+}
+
+@media (max-width: 991px) {
+  .m-navbar {
+    margin-top: 55.6px;
+  }
+}
+
+@media (min-width: 992px) {
+  .m-navbar {
+    margin-top: 72px;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

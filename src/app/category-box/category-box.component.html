@@ -1,0 +1,18 @@
+<div class="box animated fadeIn" #box>
+  <div class="spin" (click)="toggleBox()">
+    <i class="fas fa-angle-double-right" #icon></i>
+  </div>
+  <h5 class="text-center">أختر الفئة التي تعجبك</h5>
+  <ul class="list-unstyled">
+    <mat-radio-group aria-label="Select an option">
+      <li *ngFor="let category of categorys; index as i" routerLink="category" routerLinkActive="activeBox"
+        [queryParams]="{q: category.category}" (click)="radio._inputElement.nativeElement.click()">
+        <a>
+          <mat-radio-button [value]="category.category" #radio (click)="radio._inputElement.nativeElement.click()">
+          </mat-radio-button>
+          <span>{{ category.category }}</span>
+        </a>
+      </li>
+    </mat-radio-group>
+  </ul>
+</div>

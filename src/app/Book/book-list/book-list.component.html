@@ -1,0 +1,77 @@
+<div class="book-page">
+  <!--Start Home Books-->
+  <div class="books">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item animated fadeInDown"><a routerLink="/">الرئيسية</a></li>
+          <li class="breadcrumb-item active animated fadeInDown" aria-current="page">الكتب</li>
+        </ol>
+      </nav>
+      <h1 class="animated fadeInUp" *ngIf="books.length !== 0 && booksService.isLoading == false">جميع الكتب</h1>
+      <h1 class="animated fadeIn" *ngIf="books.length !== 0 && booksService.isLoading  == true">
+        <ngx-shimmer-loading></ngx-shimmer-loading>
+      </h1>
+      <div class="row justify-content-center animated fadeIn" *ngIf="booksService.isLoading  == true">
+        <div class="col-lg-3 col-6 col-Shimmer">
+          <div class="book-content">
+            <ngx-shimmer-loading></ngx-shimmer-loading>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6 col-Shimmer">
+          <div class="book-content">
+            <ngx-shimmer-loading></ngx-shimmer-loading>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6 col-Shimmer">
+          <div class="book-content">
+            <ngx-shimmer-loading></ngx-shimmer-loading>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6 col-Shimmer">
+          <div class="book-content">
+            <ngx-shimmer-loading></ngx-shimmer-loading>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6 col-Shimmer">
+          <div class="book-content">
+            <ngx-shimmer-loading></ngx-shimmer-loading>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6 col-Shimmer">
+          <div class="book-content">
+            <ngx-shimmer-loading></ngx-shimmer-loading>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6 col-Shimmer">
+          <div class="book-content">
+            <ngx-shimmer-loading></ngx-shimmer-loading>
+          </div>
+        </div>
+        <div class="col-lg-3 col-6 col-Shimmer">
+          <div class="book-content">
+            <ngx-shimmer-loading></ngx-shimmer-loading>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center animated fadeIn"
+        *ngIf="booksService.isLoading  == false && books.length !== 0">
+        <div class="col-lg-3 col-6 colBook" *ngFor="let book of books; index as i"
+          [routerLink]="['/bookDetails', book.id]">
+          <div class="book-content">
+            <img [src]="book?.coverImage" [alt]="book?.title">
+            <div class="content">
+              <h4>{{book.title }}</h4>
+              <h6>{{ (book.category.length > 21) ? (book.category | slice:0:21) + '...' : book.category }}</h6>
+              <p> {{ (book.author.length > 25) ? (book.author | slice:0:25) + '...' : book.author }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<mat-paginator [length]="totalBooks" [pageSize]="booksPerPage" [pageSizeOptions]="pageSizeOptions"
+  (page)="onChangedPage($event)" *ngIf="books.length !== 0 && booksService.isLoading  == false"></mat-paginator>
+<!--End Home Books-->

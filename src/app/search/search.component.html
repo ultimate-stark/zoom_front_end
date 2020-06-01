@@ -1,0 +1,33 @@
+<div class="search">
+  <div class="container">
+    <h2 class="h1 text-center mt-4 animated fadeInDown" *ngIf="searchedBooks.length !== 0">نتائج البحث</h2>
+    <div class="row mt-5 justify-content-center">
+      <div class="col-6 col-md-4 col-lg-3 animated fadeIn" *ngFor="let book of searchedBooks">
+        <div class="book-search">
+          <img [src]="'http://localhost:3000/images/'+book.coverImage" alt="" [routerLink]="['/bookDetails', book.id]">
+          <div class="overlay">
+            <h4>{{ (book.title.length > 15) ? (book.title | slice:0:15) + '...' : book.title }}</h4>
+            <h5>{{ (book.author.length > 15) ? (book.author | slice:0:15) + '...' : book.author }}</h5>
+            <p>{{ (book.category.length > 30) ? (book.category | slice:0:30) + '...' : book.aucategorythor }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="related-books">
+      <h2 class="h1 text-center mb-5 animated fadeInUp" *ngIf="relatedBooks.length !== 0">الكتب المشابهة</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-6 animated fadeInUp book" *ngFor="let book of relatedBooks"
+          [routerLink]="['/bookDetails', book.id]">
+          <div class="related-book">
+            <img [src]="'http://localhost:3000/images/'+book.coverImage" [alt]="book.title">
+            <div class="about-book">
+              <h5>{{ (book.title.length > 15) ? (book.title | slice:0:15) + '...' : book.title }}</h5>
+              <h6>{{ (book.author.length > 15) ? (book.author | slice:0:15) + '...' : book.author }}</h6>
+              <p>{{ (book.category.length > 60) ? (book.category | slice:0:60) + '...' : book.category }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

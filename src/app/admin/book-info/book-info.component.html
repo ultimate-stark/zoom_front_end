@@ -1,0 +1,366 @@
+<div class="wrapper rtl">
+  <app-admin-layout></app-admin-layout>
+  <div class="add-books rtl" *ngIf="isUploading == false">
+    <div class="container">
+      <svg *ngIf="mode == 'create'" id="a6165653-2719-4fed-8ed9-8fe7d02b0919" data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 777.80549 639.55194">
+        <path
+          d="M941.53245,725.07007c13.35843-15.199,76.26477-90.00934,31.55383-102.34248-33.58077-9.26295-37.322,41.69916-36.1949,75.89894-5.37716-23.04158-15.813-49.95781-34.14772-38.0819-26.42393,17.11543,23.08826,54.99167,36.02171,64.28979.21236,1.89073.35246,2.94155.35246,2.94155s.5305-.57846,1.47618-1.643c.73881.51734,1.14973.79519,1.14973.79519S941.675,726.2579,941.53245,725.07007Z"
+          transform="translate(-211.09726 -130.22403)" fill="#e6e6e6" />
+        <path
+          d="M264.28147,766.67679c15.3-17.40808,87.3493-103.09155,36.14-117.21722-38.46149-10.60926-42.74646,47.75982-41.45557,86.93029-6.15869-26.3905-18.11126-57.21881-39.11084-43.61682-30.26446,19.603,26.444,62.98432,41.25721,73.63385.24322,2.16553.40368,3.36908.40368,3.36908s.60761-.66254,1.69074-1.88183c.84619.59252,1.31683.91076,1.31683.91076S264.44474,768.03726,264.28147,766.67679Z"
+          transform="translate(-211.09726 -130.22403)" fill="#e6e6e6" />
+        <path
+          d="M432.90283,181.27832a5.00589,5.00589,0,0,0-5,5v535a5.00589,5.00589,0,0,0,5,5H863.90234a5.00588,5.00588,0,0,0,5-5v-535a5.00588,5.00588,0,0,0-5-5Z"
+          transform="translate(-211.09726 -130.22403)" fill="#e6e6e6" />
+        <path d="M795.40274,414.90335h-294a7.5,7.5,0,0,1,0-15h294a7.5,7.5,0,0,1,0,15Z"
+          transform="translate(-211.09726 -130.22403)" fill="#fff" />
+        <path
+          d="M797.927,275.15335H602.87847c-2.748,0-4.97573-3.35791-4.97573-7.5s2.22774-7.5,4.97573-7.5H797.927c2.74831,0,4.97572,3.35791,4.97572,7.5S800.67533,275.15335,797.927,275.15335Z"
+          transform="translate(-211.09726 -130.22403)" fill="#fff" />
+        <path
+          d="M797.927,318.15335H602.87847c-2.748,0-4.97573-3.35791-4.97573-7.5s2.22774-7.5,4.97573-7.5H797.927c2.74831,0,4.97572,3.35791,4.97572,7.5S800.67533,318.15335,797.927,318.15335Z"
+          transform="translate(-211.09726 -130.22403)" fill="#fff" />
+        <path d="M795.40274,463.40335h-294a7.5,7.5,0,0,1,0-15h294a7.5,7.5,0,0,1,0,15Z"
+          transform="translate(-211.09726 -130.22403)" fill="#fff" />
+        <path d="M795.40274,511.90335h-294a7.5,7.5,0,0,1,0-15h294a7.5,7.5,0,0,1,0,15Z"
+          transform="translate(-211.09726 -130.22403)" fill="#fff" />
+        <path d="M795.40274,560.40335h-294a7.5,7.5,0,0,1,0-15h294a7.5,7.5,0,0,1,0,15Z"
+          transform="translate(-211.09726 -130.22403)" fill="#fff" />
+        <path d="M795.40274,608.90335h-294a7.5,7.5,0,0,1,0-15h294a7.5,7.5,0,0,1,0,15Z"
+          transform="translate(-211.09726 -130.22403)" fill="#fff" />
+        <path d="M795.40274,657.40335h-294a7.5,7.5,0,0,1,0-15h294a7.5,7.5,0,0,1,0,15Z"
+          transform="translate(-211.09726 -130.22403)" fill="#fff" />
+        <circle cx="322.30549" cy="159.42932" r="39.5" fill="#fff" />
+        <path d="M594.265,414.90335" transform="translate(-211.09726 -130.22403)" fill="#fff" />
+        <path
+          d="M503.50718,428.18833l-58.90306,31.31555-.74561-26.09629c19.22553-3.20948,37.51669-8.7974,54.42941-17.8946l6.1605-15.22008a10.31753,10.31753,0,0,1,17.53643-2.67788l0,0a10.31752,10.31752,0,0,1-.90847,14.06885Z"
+          transform="translate(-211.09726 -130.22403)" fill="#ffb8b8" />
+        <path
+          d="M359.58341,608.993v0a11.57378,11.57378,0,0,1,1.46928-9.36311L373.992,579.77208a22.6122,22.6122,0,0,1,29.335-7.73927h0c-5.438,9.25647-4.67994,17.37679,1.87806,24.43365A117.63085,117.63085,0,0,0,377.269,615.51139,11.57386,11.57386,0,0,1,359.58341,608.993Z"
+          transform="translate(-211.09726 -130.22403)" fill="#2f2e41" />
+        <path
+          d="M506.19,583.02865l0,0a22.20317,22.20317,0,0,1-18.87085,10.77909l-85.96027.65122-3.728-21.62265,38.026-11.18412-32.06116-24.60508,35.04359-41.00845L502.2893,555.363A22.20316,22.20316,0,0,1,506.19,583.02865Z"
+          transform="translate(-211.09726 -130.22403)" fill="#2f2e41" />
+        <path
+          d="M387.93788,730.90531H367.80646C349.73137,607.00759,331.33263,482.76345,385.70106,436.39l64.12232,10.43852-8.2017,54.4294-35.7892,41.00846Z"
+          transform="translate(-211.09726 -130.22403)" fill="#2f2e41" />
+        <path
+          d="M403.63439,768.97185h0a11.57385,11.57385,0,0,1-9.3632-1.46873L374.41263,754.565a22.61221,22.61221,0,0,1-7.741-29.33451v0c9.2568,5.43749,17.37707,4.67891,24.43355-1.87951a117.6303,117.6303,0,0,0,19.04656,27.93494A11.57385,11.57385,0,0,1,403.63439,768.97185Z"
+          transform="translate(-211.09726 -130.22403)" fill="#2f2e41" />
+        <path
+          d="M475.81051,350.27835H380.109c-17.6737-25.00341-19.748-48.91343,0-71.29391,0-9.89633,12.78255-17.9189,28.55061-17.9189h.00005c12.35162,0,23.30262,4.985,27.13873,12.35373Z"
+          transform="translate(-211.09726 -130.22403)" fill="#2f2e41" />
+        <path
+          d="M435.65682,353.62749l-37.28042-8.9473c6.19168-12.6739,6.70156-26.77618,3.728-41.75406l25.35068-.74561C428.24943,320.80591,430.65254,338.20673,435.65682,353.62749Z"
+          transform="translate(-211.09726 -130.22403)" fill="#ffb8b8" />
+        <path
+          d="M445.90274,469.27835c-27.13873,18.49307-46.31417.63272-60.94729-26.92346,2.03338-16.86188-1.259-37.04061-7.35671-58.96635a40.1376,40.1376,0,0,1,24.50567-48.40124l0,0,32.06116,13.421c27.22362,22.19038,32.582,46.227,22.36825,71.5784Z"
+          transform="translate(-211.09726 -130.22403)" fill="var(--mainColor)" />
+        <path
+          d="M367.80646,372.2677l-29.82434,15.65778,52.9382,31.31555,7.366,18.16951a9.63674,9.63674,0,0,1-5.78926,12.73088h0a9.63674,9.63674,0,0,1-12.76159-8.54442l-.74489-12.66307-67.2838-22.20366a15.73308,15.73308,0,0,1-9.87265-9.61147v0a15.73306,15.73306,0,0,1,5.90261-18.30259l54.10485-37.11844Z"
+          transform="translate(-211.09726 -130.22403)" fill="#ffb8b8" />
+        <path
+          d="M397.63079,375.25014c-12.43861-5.45111-23.74934.47044-38.026,5.21925l-2.23683-39.51724c14.17612-7.55568,27.69209-9.59281,40.26285-3.728Z"
+          transform="translate(-211.09726 -130.22403)" fill="var(--mainColor)" />
+        <path
+          d="M474.05565,350.27835H452.94743c-13.13752-24.23557-12.54109-67.05554-40.77728-57.51207-18.14071-10.76664-7.73195,31.48445-12.24283,57.51207h-18.357c-4.98808-25.43029-5.05734-50.91272.81059-71.63526a9.65549,9.65549,0,0,1,3.51179-7.05923,19.95187,19.95187,0,0,1,2.94512-2.2377c6.48684-4.0867,10.84335-6.41448,20.32-6.41448a57.20354,57.20354,0,0,1,15.68763,2.15712c.6636.19439,1.31974.403,1.95349.62106.87239.29868,1.71484.6258,2.52016.97662,4.14562,1.78259,7.40384,4.19573,8.9473,7.2157C456.13119,295.20786,465.25,322.08887,474.05565,350.27835Z"
+          transform="translate(-211.09726 -130.22403)" fill="#2f2e41" />
+        <circle cx="201.41293" cy="167.72864" r="23.80211" fill="#ffb8b8" />
+        <path
+          d="M436.65233,288.77186c-7.16073-9.76016-25.83491,1.88251-48.28429,10.2009V275.85071c18.46723-8.12972,29.236-10.47468,41.48368-2.04018Z"
+          transform="translate(-211.09726 -130.22403)" fill="#2f2e41" />
+        <circle cx="644.14664" cy="57.65885" r="57.65885" fill="var(--mainColor)" />
+        <path
+          d="M831.21973,184.07813a3.80493,3.80493,0,1,0,0,7.60986h20.21972v20.21924a3.80469,3.80469,0,1,0,7.60938,0V191.688h20.21972a3.80493,3.80493,0,0,0,0-7.60986H859.04883V163.8584a3.80469,3.80469,0,1,0-7.60938,0v20.21973Z"
+          transform="translate(-211.09726 -130.22403)" fill="#fff" /></svg>
+      <svg *ngIf="mode == 'edit'" id="eae92b3c-f2dd-4107-b6f3-1e0441e28c2a" data-name="Layer 1"
+        xmlns="http://www.w3.org/2000/svg" width="886.29501" height="670.66766" viewBox="0 0 886.29501 670.66766">
+        <title>redesign_feedback</title>
+        <path
+          d="M832.0229,761.21947c-.12009-.19624-2.95175-4.92435-3.93345-14.74237-.90044-9.00753-.32144-24.19041,7.55261-45.36929,14.91714-40.122-3.43774-72.49457-3.62529-72.817l.90555-.52534a80.35978,80.35978,0,0,1,7.58174,21.47834,93.703,93.703,0,0,1-3.88081,52.22892c-14.8916,40.05349-3.82051,59.01446-3.70706,59.2015Z"
+          transform="translate(-156.8525 -114.66617)" fill="#e6e6e6" />
+        <circle cx="669.33744" cy="504.46581" r="6.80291" fill="var(--mainColor)" />
+        <circle cx="690.79278" cy="529.58426" r="6.80291" fill="var(--mainColor)" />
+        <circle cx="676.14035" cy="546.3299" r="6.80291" fill="#e6e6e6" />
+        <circle cx="693.93259" cy="560.45903" r="6.80291" fill="#e6e6e6" />
+        <circle cx="670.90734" cy="582.43767" r="6.80291" fill="var(--mainColor)" />
+        <path d="M836.13265,761.46988s-6.80291-16.74564,13.60583-29.30486Z" transform="translate(-156.8525 -114.66617)"
+          fill="#e6e6e6" />
+        <path d="M827.76612,761.16612s-3.09606-17.80759-27.05911-17.655Z" transform="translate(-156.8525 -114.66617)"
+          fill="#e6e6e6" />
+        <ellipse cx="717.91906" cy="653.78606" rx="167.62405" ry="16.8816" fill="var(--mainColor)" />
+        <rect width="703.57565" height="450.60114" fill="var(--mainColor)" />
+        <circle cx="21.91178" cy="14.88273" r="5.53997" fill="var(--secColor)" />
+        <circle cx="42.94011" cy="14.88273" r="5.53997" fill="var(--secColor)" />
+        <circle cx="63.96845" cy="14.88273" r="5.53997" fill="var(--secColor)" />
+        <rect x="424.21371" y="184.81366" width="120.50198" height="6.91727" fill="#e6e6e6" />
+        <rect x="424.21371" y="210.04597" width="186.08129" height="6.91727" fill="var(--secColor)" />
+        <rect x="424.21371" y="233.81847" width="151.65215" height="6.91727" fill="#e6e6e6" />
+        <rect x="424.21371" y="257.50113" width="88.53207" height="6.91727" fill="#e6e6e6" />
+        <rect x="424.21371" y="281.1838" width="133.61784" height="6.91727" fill="#e6e6e6" />
+        <rect x="369.29104" y="182.35443" width="14.75534" height="14.75534" fill="#e6e6e6" />
+        <rect x="369.29104" y="206.12693" width="14.75534" height="14.75534" fill="var(--secColor)" />
+        <rect x="369.29104" y="229.89943" width="14.75534" height="14.75534" fill="#e6e6e6" />
+        <rect x="369.29104" y="253.67193" width="14.75534" height="14.75534" fill="#e6e6e6" />
+        <rect x="369.29104" y="277.44443" width="14.75534" height="14.75534" fill="#e6e6e6" />
+        <path
+          d="M719.22352,391.75491H685.921a116.47683,116.47683,0,0,1,0-39.70682h33.3025A71.446,71.446,0,0,0,719.22352,391.75491Z"
+          transform="translate(-156.8525 -114.66617)" fill="var(--inputFocusColor)" />
+        <circle cx="184.05753" cy="220.23362" r="89.47009" fill="var(--secColor)" />
+        <path d="M345.91017,250.47874h-10v-10h10Zm-8-2h6v-6h-6Z" transform="translate(-156.8525 -114.66617)"
+          fill="#fff" />
+        <rect x="187.29302" y="129.81257" width="53" height="2" fill="#fff" />
+        <circle cx="240.29282" cy="130.81257" r="2.08275" fill="#fff" />
+        <rect x="128.29302" y="129.81257" width="52" height="2" fill="#fff" />
+        <circle cx="128.29282" cy="130.81257" r="2.08275" fill="#fff" />
+        <path d="M435.14552,339.66429h-10v-10h10Zm-8-2h6v-6h-6Z" transform="translate(-156.8525 -114.66617)"
+          fill="#fff" />
+        <rect x="272.29302" y="224.23347" width="2" height="52" fill="#fff" />
+        <circle cx="273.29282" cy="276.23362" r="2.08275" fill="#fff" />
+        <rect x="272.29302" y="164.23347" width="2" height="52" fill="#fff" />
+        <circle cx="273.29282" cy="164.23362" r="2.08275" fill="#fff" />
+        <path d="M256.14552,339.66429h-10v-10h10Zm-8-2h6v-6h-6Z" transform="translate(-156.8525 -114.66617)"
+          fill="#fff" />
+        <rect x="93.29302" y="224.23347" width="2" height="52" fill="#fff" />
+        <circle cx="94.29282" cy="276.23362" r="2.08275" fill="#fff" />
+        <rect x="93.29302" y="162.23347" width="2" height="54" fill="#fff" />
+        <circle cx="94.29282" cy="164.23362" r="2.08275" fill="#fff" />
+        <path d="M345.91017,429.47874h-10v-10h10Zm-8-2h6v-6h-6Z" transform="translate(-156.8525 -114.66617)"
+          fill="#fff" />
+        <rect x="188.29302" y="308.81257" width="53" height="2" fill="#fff" />
+        <circle cx="240.29282" cy="309.81257" r="2.08275" fill="#fff" />
+        <rect x="128.29302" y="308.81257" width="52" height="2" fill="#fff" />
+        <circle cx="128.29282" cy="309.81257" r="2.08275" fill="#fff" />
+        <path
+          d="M390.61467,470.32508H351.84589a135.59545,135.59545,0,0,1,0-46.22432h38.76878A83.17321,83.17321,0,0,0,390.61467,470.32508Z"
+          transform="translate(-156.8525 -114.66617)" fill="#e6e6e6" />
+        <path
+          d="M903.74053,460.78243l-9.07766,33.717s-4.53883,27.233,3.242,27.88139,5.83564-27.233,5.83564-27.233l14.91331-23.34257Z"
+          transform="translate(-156.8525 -114.66617)" fill="#fbbebe" />
+        <path
+          d="M971.1746,478.41383V467.85051l-61.58688-4.15026-9.73761,62.24853s-1.29681,62.05951,3.242,93.74947,13.61649,105.63321,13.61649,105.63321h41.49789L947.832,571.5031l46.68513,153.82836,48.63033-5.94186L986.73631,537.83251S987.38472,504.16193,971.1746,478.41383Z"
+          transform="translate(-156.8525 -114.66617)" fill="#2f2e41" />
+        <path
+          d="M921.89586,718.199l-2.59362,20.10054-3.89042,14.2649s-18.15533,3.89043-7.13245,10.37448,21.39734,0,21.39734,0l8.42926-11.67129v20.10054h12.96809V742.83839L941.348,721.441Z"
+          transform="translate(-156.8525 -114.66617)" fill="#2f2e41" />
+        <path
+          d="M1002.298,718.199l-2.59362,20.10054-3.89043,14.2649s-18.15532,3.89043-7.13245,10.37448,21.39735,0,21.39735,0l8.42926-11.67129v20.10054h12.96809V742.83839l-9.72607-21.39735Z"
+          transform="translate(-156.8525 -114.66617)" fill="#2f2e41" />
+        <circle cx="788.71013" cy="218.70477" r="22.04575" fill="#fbbebe" />
+        <polygon points="803.299 228.107 821.455 250.152 799.409 258.582 789.034 237.833 803.299 228.107"
+          fill="#fbbebe" />
+        <path
+          d="M949.12885,366.11537l3.13532-.86182s16.31681-10.16106,20.85565-9.51265,18.80373,14.9133,16.21011,34.36544,2.59362,92.07343-7.78085,89.47982-13.6165-4.53883-13.6165-4.53883l-12.31969-5.83565-11.67128,3.242s-7.13245-4.53883-12.96809-3.242-24.63937-5.18723-24.63937-5.18723Z"
+          transform="translate(-156.8525 -114.66617)" fill="#e6e6e6" />
+        <path
+          d="M953.73456,368.19435s-14.656-6.942-21.14,3.43246-24.63937,65.48885-24.63937,65.48885l-8.42925,25.28778,20.74894,12.31968,40.84948-75.21492S967.09374,377.08157,953.73456,368.19435Z"
+          transform="translate(-156.8525 -114.66617)" fill="#e6e6e6" />
+        <path
+          d="M943.26035,336.80908c-1.38564-2.13275-.68538-5.03268-1.65713-7.38307-1.52593-3.69086-6.26843-4.5555-10.24807-4.89225a30.54552,30.54552,0,0,0-7.94023.02125,7.6208,7.6208,0,0,0-5.50688,3.99269c-.5888,1.18084-.44022-2.51893-.063-7.2683a22.95739,22.95739,0,0,1,17.60636-20.5384q.08433-.01981.16715-.03892c4.84533-1.11777,9.84138-1.94035,14.78-1.36016s9.86121,2.71207,12.94332,6.61427c1.40867,1.78348,2.40474,3.88661,3.97722,5.52746,2.76285,2.883,6.8587,3.932,10.62107,5.26971a32.0464,32.0464,0,0,1,11.646,6.719,17.36958,17.36958,0,0,1,5.62952,11.9366c.07949,5.26723-3.27111,10.70305-8.67011,11.74151a6.06156,6.06156,0,0,0-2.589,1.11728c-5.15519,3.99715.72553,8.18146.68478,12.68135-.034,3.75483-4.214,6.202-7.965,6.3771a15.11276,15.11276,0,0,1-15.0521-11.95783c-.56546-3.08147-.12881-6.24637.23906-9.35762.42109-3.56142-7.24851-11.94739-2.18218-5.8007a8.81536,8.81536,0,0,1,1.937,4.07843c.84322,4.91044-3.62532,6.56215-6.44322,9.283a11.67616,11.67616,0,0,0-2.8264,12.01857A13.46137,13.46137,0,0,1,949.902,348.591c.90773-1.39212,2.07725-2.60324,2.938-4.02486,1.34319-2.2183,1.71361-7.04329-2.046-6.91079C948.11059,337.74992,945.32307,339.984,943.26035,336.80908Z"
+          transform="translate(-156.8525 -114.66617)" fill="#2f2e41" />
+        <polygon points="796.491 306.888 766.664 354.088 794.894 302.109 796.491 306.888" opacity="0.2" />
+        <rect x="552.73721" y="603.889" width="49.00955" height="49.00955" fill="var(--secColor)" />
+        <rect x="585.59427" y="631.88795" width="24.4579" height="24.4579" fill="#e6e6e6" />
+        <path d="M839.64063,541.4668h-662v-395h662Zm-660-2h658v-391h-658Z" transform="translate(-156.8525 -114.66617)"
+          fill="#e6e6e6" />
+      </svg>
+      <h2 class="h1 animated fadeInDown mt-5">اضف الكتب التى تريدها هنا</h2>
+      <form [formGroup]="form" (submit)="onSavebook()">
+
+        <div class="form-group fadeInLeft wow " data-wow-delay="0s">
+          <label for="name">نوع الوعاء</label>
+          <input type="text" class="form-control" placeholder="برجاء ادخال نوع الوعاء" formControlName="type" [ngClass]="{
+            'is-valid': !type().invalid && type().dirty,
+            'is-invalid': type().invalid && type().dirty
+          }">
+          <div class="mt-1" *ngIf="type().errors?.required && type().dirty">هذا الادخال مطلوب</div>
+        </div>
+
+        <div class="form-group fadeInLeft wow " data-wow-delay="0s">
+          <label for="name">العنوان</label>
+          <input type="text" class="form-control" placeholder="برجاء ادخال العنوان" formControlName="title" [ngClass]="{
+            'is-valid': !title().invalid && title().dirty,
+            'is-invalid': title().invalid && title().dirty
+          }">
+          <div class="mt-1" *ngIf="title().errors?.required && title().dirty">هذا الادخال مطلوب</div>
+        </div>
+
+
+        <div class="form-group fadeInLeft wow " data-wow-delay="0s">
+          <label for="name">المؤلف</label>
+          <input type="text" class="form-control" placeholder="برجاء ادخال المؤلف" formControlName="author" [ngClass]="{
+            'is-valid': !author().invalid && author().dirty,
+            'is-invalid': author().invalid && author().dirty
+          }">
+          <div class="mt-1" *ngIf="author().errors?.required && author().dirty">هذا الادخال مطلوب</div>
+        </div>
+
+        <div class="form-group fadeInLeft wow " data-wow-delay="0s">
+          <label for="name">المحقق</label>
+          <input type="text" class="form-control" placeholder="برجاء ادخال المحقق" formControlName="reviewer" [ngClass]="{
+            'is-valid': !reviewer().invalid && reviewer().dirty,
+            'is-invalid': reviewer().invalid && reviewer().dirty
+          }">
+          <div class="mt-1" *ngIf="reviewer().errors?.required && reviewer().dirty">هذا الادخال مطلوب</div>
+        </div>
+
+        <div class="form-group fadeInLeft wow " data-wow-delay="0s">
+          <label for="name">الناشر</label>
+          <input type="text" class="form-control" placeholder="برجاء ادخال الناشر" formControlName="publishers"
+            [ngClass]="{
+            'is-valid': !publishers().invalid && publishers().dirty,
+            'is-invalid': publishers().invalid && publishers().dirty
+          }">
+          <div class="mt-1" *ngIf="publishers().errors?.required && publishers().dirty">هذا الادخال مطلوب</div>
+        </div>
+
+        <div class="form-group fadeInLeft wow " data-wow-delay="0s">
+          <label for="name">ناريخ النشر</label>
+          <input type="text" class="form-control" placeholder="برجاء ادخال  تاريخ النشر"
+            formControlName="publicationDate" [ngClass]="{
+              'is-valid': !publicationDate().invalid && publicationDate().dirty,
+              'is-invalid': publicationDate().invalid && publicationDate().dirty
+            }">
+          <div class="mt-1" *ngIf="publicationDate().errors?.required && publicationDate().dirty">هذا الادخال مطلوب
+          </div>
+        </div>
+
+        <div class="form-group fadeInLeft wow " data-wow-delay="0s">
+          <label for="name">بلد النشر</label>
+          <input type="text" class="form-control" placeholder="برجاء ادخال بلد النشر"
+            formControlName="publicationCountry" [ngClass]="{
+              'is-valid': !publicationCountry().invalid && publicationCountry().dirty,
+              'is-invalid': publicationCountry().invalid && publicationCountry().dirty
+            }">
+          <div class="mt-1" *ngIf="type().errors?.required && type().dirty">هذا الادخال مطلوب</div>
+        </div>
+
+        <div class="form-group fadeInLeft wow " data-wow-delay="0s">
+          <label for="name">المدينه</label>
+          <input type="text" class="form-control" placeholder="برجاء ادخال المدينه" formControlName="publicationCity"
+            [ngClass]="{
+            'is-valid': !publicationCity().invalid && publicationCity().dirty,
+            'is-invalid': publicationCity().invalid && publicationCity().dirty
+          }">
+          <div class="mt-1" *ngIf="publicationCity().errors?.required && publicationCity().dirty">هذا الادخال مطلوب
+          </div>
+        </div>
+
+        <div class="form-group fadeInLeft wow " data-wow-delay="0s">
+          <label for="name">الطبعه</label>
+          <input type="text" class="form-control" placeholder="برجاء ادخال الطبعه" formControlName="edition" [ngClass]="{
+            'is-valid': !edition().invalid && edition().dirty,
+            'is-invalid': edition().invalid && edition().dirty
+          }">
+          <div class="mt-1" *ngIf="edition().errors?.required && edition().dirty">هذا الادخال مطلوب</div>
+        </div>
+
+        <div class="form-group fadeInLeft wow " data-wow-delay="0s">
+          <label for="name">الاجزاء</label>
+          <input type="text" class="form-control" placeholder="برجاء ادخال الاجزاء" formControlName="parts" [ngClass]="{
+            'is-valid': !parts().invalid && parts().dirty,
+            'is-invalid': parts().invalid && parts().dirty
+          }">
+          <div class="mt-1" *ngIf="parts().errors?.required && parts().dirty">هذا الادخال مطلوب</div>
+        </div>
+
+        <div class="form-group fadeInLeft wow " data-wow-delay="0s">
+          <label for="name">الاوراق</label>
+          <input type="text" class="form-control" placeholder="برجاء ادخال الاوراق " formControlName="papers" [ngClass]="{
+            'is-valid': !papers().invalid && papers().dirty,
+            'is-invalid': papers().invalid && papers().dirty
+          }">
+          <div class="mt-1" *ngIf="papers().errors?.required && papers().dirty">هذا الادخال مطلوب</div>
+        </div>
+
+        <div class="form-group fadeInLeft wow " data-wow-delay="0s">
+          <label for="name">الرابط</label>
+          <input type="text" class="form-control" placeholder="برجاء ادخال الرابط" formControlName="file" [ngClass]="{
+            'is-valid': !file().invalid && file().dirty,
+            'is-invalid': file().invalid && file().dirty
+          }">
+          <div class="mt-1" *ngIf="file().errors?.required && file().dirty">هذا الادخال مطلوب</div>
+        </div>
+
+        <div class="form-group fadeInLeft wow" data-wow-delay="0s">
+          <label for="name">التصنيف</label>
+          <input type="text" placeholder="برجاء ادخال التصنيف " class="form-control" formControlName="category"
+            [ngClass]="{
+            'is-valid': !category().invalid && category().dirty,
+            'is-invalid': category().invalid && category().dirty
+          }">
+          <div class="mt-1" *ngIf="category().errors?.required && category().dirty">هذا الادخال مطلوب</div>
+        </div>
+
+        <div class="form-group fadeInLeft wow" data-wow-delay="0s">
+          <label for="name">التصنيف الفرعي</label>
+          <input type="text" placeholder="برجاء ادخال التصنيف " class="form-control" formControlName="subCategory"
+            [ngClass]="{
+            'is-valid': !subCategory().invalid && subCategory().dirty,
+            'is-invalid': subCategory().invalid && subCategory().dirty
+          }">
+          <div class="mt-1" *ngIf="subCategory().errors?.required && subCategory().dirty">هذا الادخال مطلوب</div>
+        </div>
+
+        <div class="form-group fadeInLeft wow " data-wow-delay="0s">
+          <label for="name">الموضوعات</label>
+          <input type="text" class="form-control" placeholder="برجاء ادخال الموضوعات" formControlName="subject"
+            [ngClass]="{
+            'is-valid': !subject().invalid && subject().dirty,
+            'is-invalid': subject().invalid && subject().dirty
+          }">
+          <div class="mt-1" *ngIf="subject().errors?.required && subject().dirty">هذا الادخال مطلوب</div>
+        </div>
+
+        <div class="form-group fadeInLeft wow " data-wow-delay="0s">
+          <label for="name">الملاحظات</label>
+          <input type="text" class="form-control" placeholder="برجاء ادخال الملاحظات " formControlName="comments"
+            [ngClass]="{
+            'is-valid': !comments().invalid && comments().dirty,
+            'is-invalid': comments().invalid && comments().dirty
+          }">
+          <div class="mt-1" *ngIf="comments().errors?.required && comments().dirty">هذا الادخال مطلوب</div>
+        </div>
+
+
+        <div class="form-group fadeInLeft wow" data-wow-delay="0s">
+          <label for="name">تسجيل صوتي</label>
+          <input class="main-file" multiple hidden type="file" accept="audio/*" #soundPicker
+            (change)="onSoundPicked($event)">
+          <button type="button" class="file" (click)="soundPicker.click()">اختر التسجيل</button>
+          <ul class="mb-2 mt-2">
+            <li *ngFor="let file of new_Files">{{ file.name }}</li>
+          </ul>
+
+        </div>
+
+        <div class="form-group fadeInLeft wow" data-wow-delay="0.3s">
+          <label for="name">صورة الكتاب</label>
+          <input class="main-file" type="file" accept="image/*" hidden #filePicker (change)="onImagePicked($event)">
+          <button type="button" class="file" (click)="filePicker.click()">اختر الصورة</button>
+          <i class="fas fa-times" #viewIcon hidden></i>
+          <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('coverImage').valid">
+            <img [src]="imagePreview" [alt]="form.value.title">
+          </div>
+        </div>
+
+        <div class="form-group fadeInLeft wow" data-wow-delay="0s">
+          <button type="submit" [disabled]="form.invalid">تأكيد الطلب</button>
+          <div class="mt-1" *ngIf="form.invalid">كل الحقول مطلوبة</div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="loading" *ngIf="isUploading == true">
+    <h2>
+      برجاء الانتظار.. يتم رفع الكتاب الان
+    </h2>
+    <div class="lds-ellipsis">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,124 @@
+<div class="book-details rtl ">
+  <div class="container">
+    <!--Start Book-->
+    <div class="book" *ngIf="booksService.isLoading == false">
+      <div class="book-img animated slideInRight">
+        <img [src]="'http://localhost:3000/images/'+book?.coverImage" [alt]="book?.title">
+        <button class="btn btn-success" (click)="download(book.id)">تحميل الكتاب</button>
+      </div>
+      <div class="about-book wow fadeIn" data-wow-duration="2s">
+        <div class="about-book-child">
+          <h2 class="h1">{{book?.title}}</h2>
+          <span>{{book?.author}}</span><br>
+          <span>{{book?.category}}</span>
+          <p>{{book?.publicationCountry}}</p>
+        </div>
+      </div>
+    </div>
+    <!--End Book-->
+
+    <!--Start Book Shimmer -->
+    <div class="book" *ngIf="booksService.isLoading == true">
+      <div class="book-img animated slideInRight">
+        <ngx-shimmer-loading class="book-shimmer"></ngx-shimmer-loading>
+        <ngx-shimmer-loading class="book-shimmer-button"></ngx-shimmer-loading>
+      </div>
+      <div class="about-book wow fadeIn" data-wow-duration="2s">
+        <div class="about-book-child">
+          <ngx-shimmer-loading class="book-shimmer-title"></ngx-shimmer-loading>
+          <ngx-shimmer-loading></ngx-shimmer-loading>
+          <ngx-shimmer-loading></ngx-shimmer-loading>
+          <ngx-shimmer-loading class="book-shimmer-content"></ngx-shimmer-loading>
+        </div>
+      </div>
+    </div>
+    <!--End Book Shimmer-->
+
+    <!--Start Stepper-->
+    <div class="stepper animated slideInUp">
+      <mat-tab-group>
+        <mat-tab label="كتب ذات علاقه">
+          <!-- <mat-accordion class="aboutSearch">
+            <h4 *ngIf="booksWithAdditions.length == 0">لا يوجد كتب</h4>
+            <mat-expansion-panel *ngFor="let book of booksWithAdditions;">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <div>
+                    <img [src]="'http://172.104.244.232:3000/images/'+book.coverImage" [alt]="book.title">
+                  </div>
+                  <div class="about-search-header-content">
+                    <h6>{{book.title}}</h6>
+                    <span>{{book.author}}</span>
+                  </div>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="content">
+                <h6>دار النشر</h6>
+                <p>{{ book.category }}</p>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion> -->
+        </mat-tab>
+        <mat-tab label="مخطوطات ذات علاقه">
+          <!-- <mat-accordion class="aboutSearch">
+            <h4 *ngIf="booksWithPlan.length == 0">لا يوجد كتب</h4>
+            <mat-expansion-panel *ngFor="let book of booksWithPlan;">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <div>
+                    <img [src]="'http://172.104.244.232:3000/images/'+book.coverImage" [alt]="book.img">
+                  </div>
+                  <div class="about-search-header-content">
+                    <h6>{{book.title}}</h6>
+                    <span>{{book.author}}</span>
+                  </div>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="content">
+                <h6>عن الكتاب</h6>
+                <p>{{ book.publishers }}</p>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion> -->
+        </mat-tab>
+        <mat-tab label="تسجيلات صوتية">
+          <!--Start Audios-->
+          <div class="audios" #viewAudios *ngIf="booksService.isLoading == false">
+            <h4 *ngIf="bookSoundLength == 0">لا يوجد تسجيلات</h4>
+            <div class="audio" *ngFor="let audio of book?.sound; index as i">
+              <h6>{{ (audio.audioName.length > 30) ? (audio.audioName | slice:0:30) + '...' : audio.audioName }}</h6>
+              <audio controls>
+                <source [src]="'http://localhost:3000/'+audio.audioSrc" type="audio/mpeg">
+              </audio>
+            </div>
+          </div>
+          <!--End Audios-->
+
+          <!--Start Audios Shimmer-->
+          <div class="audios" *ngIf="booksService.isLoading == true">
+            <div class="audio">
+              <ngx-shimmer-loading class="audio-shimmer-name mr-4"></ngx-shimmer-loading>
+              <ngx-shimmer-loading class="book-shimmer-audio"></ngx-shimmer-loading>
+            </div>
+            <div class="audio">
+              <ngx-shimmer-loading class="audio-shimmer-name mr-4"></ngx-shimmer-loading>
+              <ngx-shimmer-loading class="book-shimmer-audio"></ngx-shimmer-loading>
+            </div>
+            <div class="audio">
+              <ngx-shimmer-loading class="audio-shimmer-name mr-4"></ngx-shimmer-loading>
+              <ngx-shimmer-loading class="book-shimmer-audio"></ngx-shimmer-loading>
+            </div>
+            <div class="audio">
+              <ngx-shimmer-loading class="audio-shimmer-name mr-4"></ngx-shimmer-loading>
+              <ngx-shimmer-loading class="book-shimmer-audio"></ngx-shimmer-loading>
+            </div>
+          </div>
+          <!--End Audio-->
+
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+    <!--End Stepper-->
+
+  </div>
+</div>

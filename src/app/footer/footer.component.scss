@@ -1,0 +1,64 @@
+@import "../../assets/sass/placeholder";
+footer {
+  background-color: var(--mainColor);
+  clip-path: polygon(50% 20%, 100% 0, 100% 100%, 0 100%, 0 0);
+  @media (max-width: 767px) {
+    clip-path: polygon(50% 10%, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
+  padding: 60px 0;
+  color: #fff;
+  h5 {
+    @media (max-width: 991px) {
+      text-align: center;
+      font-size: 16px;
+    }
+  }
+  h6 {
+    @media (max-width: 991px) {
+      text-align: center;
+      font-size: 14px;
+    }
+    a {
+      color: var(--inputFocusColor);
+    }
+  }
+  .links {
+    text-align: left;
+    @media (max-width: 991px) {
+      text-align: center;
+      i {
+        font-size: 18px;
+      }
+    }
+    &:last-child {
+      margin-top: 10px;
+    }
+    li {
+      display: inline-block;
+      cursor: pointer;
+      &:not(:last-child) {
+        margin-left: 15px;
+      }
+      i {
+        transition: all 0.2s ease-in-out;
+      }
+      @each $val, $color in (facebook-f, #388efc), (twitter, #6cb9e9),
+        (instagram, #ca63b5), (youtube, #c84848)
+      {
+        .fa-#{$val} {
+          color: $color;
+        }
+      }
+      &:hover {
+        i {
+          opacity: 0.6;
+        }
+      }
+      a {
+        color: #fff;
+        font-size: 13px;
+        font-weight: bold;
+      }
+    }
+  }
+}

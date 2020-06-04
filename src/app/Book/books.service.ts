@@ -97,11 +97,20 @@ export class booksService {
     }>(BACKEND_URL + id);
   }
 
+  getAuthors(){
+    return this.http.get(BACKEND_URL + 'get-authors')
+  }
+  getReviewers(){
+    return this.http.get(BACKEND_URL + 'get-reviewers')
+  }
+  getPublishers(){
+    return this.http.get(BACKEND_URL + 'get-publishers')
+  }
 
   addBook(
     type: string,
     title: string,
-    author: string,
+    author: any,
     reviewer: string,
     publishers: string,
     publicationDate: string,
@@ -129,9 +138,9 @@ export class booksService {
     const bookData = new FormData();
     bookData.append("type", type);
     bookData.append("title", title);
-    bookData.append("author", author);
-    bookData.append("reviewer", reviewer);
-    bookData.append("publishers", publishers);
+    bookData.append("author", JSON.stringify(author));
+    bookData.append("reviewer", JSON.stringify(reviewer));
+    bookData.append("publishers", JSON.stringify(publishers));
     bookData.append("publicationDate", publicationDate);
     bookData.append("publicationCountry", publicationCountry);
     bookData.append("publicationCity", publicationCity);
@@ -149,8 +158,8 @@ export class booksService {
 
     })
 
-    console.log(bookData);
-    return this.http.post<{ message: string; book: Book }>(BACKEND_URL, bookData, {
+    console.log('sad');
+    return this.http.post<{ message: string; book: Book }>(BACKEND_URL, bookData , {
       observe: 'events'
     })
   }
@@ -229,6 +238,7 @@ export class booksService {
       }
       this.http.put(BACKEND_URL + id, bookData)
         .subscribe(response => {
+          console.log(this.updateBook)
           this.router.navigate(["/"]);
         });
     }

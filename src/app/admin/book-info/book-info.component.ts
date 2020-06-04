@@ -9,6 +9,8 @@ import { NgwWowService } from 'ngx-wow';
 import { HttpEventType } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 
+import * as $ from 'jquery';
+
 @Component({
   selector: 'app-add-book',
   templateUrl: './book-info.component.html',
@@ -26,10 +28,10 @@ export class addAndEditBook implements OnInit {
   form: FormGroup;
   imagePreview: string;
   mode = "create";
+  authors: any;
+  reviewers: any;
+  publisher: any;
   private bookId: string;
-
-
-
 
   constructor(
     public booksService: booksService,
@@ -37,11 +39,20 @@ export class addAndEditBook implements OnInit {
     private wowService: NgwWowService,
     private router: Router,
     private toastr: ToastrService
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.makeCreateForm();
     this.getBook();
+    this.booksService.getAuthors().subscribe((data: any) => {
+      this.authors = data.authors
+    })
+    this.booksService.getReviewers().subscribe((data: any) => {
+      this.reviewers = data.reviewers
+    })
+    this.booksService.getPublishers().subscribe((data: any) => {
+      this.publisher = data.publishers
+    })
     this.wowService.init();
   }
 
@@ -108,24 +119,24 @@ export class addAndEditBook implements OnInit {
   makeCreateForm() {
     if (this.mode == 'create') {
       this.form = new FormGroup({
-        type: new FormControl(null, { validators: [Validators.required] }),
-        title: new FormControl(null, { validators: [Validators.required] }),
-        author: new FormControl(null, { validators: [Validators.required] }),
-        reviewer: new FormControl(null, { validators: [Validators.required] }),
-        publishers: new FormControl(null, { validators: [Validators.required] }),
-        publicationDate: new FormControl(null, { validators: [Validators.required] }),
-        publicationCountry: new FormControl(null, { validators: [Validators.required] }),
-        publicationCity: new FormControl(null, { validators: [Validators.required] }),
-        edition: new FormControl(null, { validators: [Validators.required] }),
-        parts: new FormControl(null, { validators: [Validators.required] }),
-        papers: new FormControl(null, { validators: [Validators.required] }),
-        file: new FormControl(null, { validators: [Validators.required] }),
-        category: new FormControl(null, { validators: [Validators.required] }),
-        subCategory: new FormControl(null, { validators: [Validators.required] }),
-        subject: new FormControl(null, { validators: [Validators.required] }),
-        comments: new FormControl(null, { validators: [Validators.required] }),
-        coverImage: new FormControl(null, { validators: [Validators.required] }),
-        sound: new FormControl(null, { validators: [Validators.required] })
+        type: new FormControl(null),
+        title: new FormControl(null),
+        author: new FormControl(null),
+        reviewer: new FormControl(null),
+        publishers: new FormControl(null),
+        publicationDate: new FormControl(null),
+        publicationCountry: new FormControl(null),
+        publicationCity: new FormControl(null),
+        edition: new FormControl(null),
+        parts: new FormControl(null),
+        papers: new FormControl(null),
+        file: new FormControl(null),
+        category: new FormControl(null),
+        subCategory: new FormControl(null),
+        subject: new FormControl(null),
+        comments: new FormControl(null),
+        coverImage: new FormControl(null),
+        sound: new FormControl(null)
       });
     }
   }
@@ -214,19 +225,21 @@ export class addAndEditBook implements OnInit {
   }
 
   onSavebook() {
-    console.log(this.form)
+    console.log()
     if (this.form.invalid) {
       return;
     }
-    // this.isLoading = true;
     if (this.mode === "create") {
-      console.log(this.form.value.image)
+      let authors = $('.selectpicker.authors-list').val().map(name => ({name}))
+      let reviewers = $('.selectpicker.reviewers-list').val().map(name => ({name}))
+      let publishers = $('.selectpicker.publishers-list').val().map(name => ({name}))
+
       this.booksService.addBook(
         this.form.value.type,
         this.form.value.title,
-        this.form.value.author,
-        this.form.value.reviewer,
-        this.form.value.publishers,
+        authors,
+        reviewers,
+        publishers,
         this.form.value.publicationDate,
         this.form.value.publicationCountry,
         this.form.value.publicationCity,
@@ -241,7 +254,6 @@ export class addAndEditBook implements OnInit {
         this.form.value.coverImage,
         this.form.value.sound
 
-
       ).subscribe(e => {
         if (e.type == 0) {
           this.isUploading = true;
@@ -254,7 +266,8 @@ export class addAndEditBook implements OnInit {
         }
         console.log(this.isUploading)
       })
-    } else {
+    } 
+    else {
       this.booksService.updateBook(
         this.bookId,
         this.form.value.type,
@@ -275,10 +288,9 @@ export class addAndEditBook implements OnInit {
         this.form.value.comments,
         this.form.value.coverImage,
         this.form.value.sound
-
       );
     }
-    this.form.reset();
+    // this.form.reset();
   }
 
 

@@ -166,7 +166,7 @@
           fill="#e6e6e6" />
       </svg>
       <h2 class="h1 animated fadeInDown mt-5">اضف الكتب التى تريدها هنا</h2>
-      <form [formGroup]="form" (submit)="onSavebook()">
+      <form [formGroup]="form" (submit)="onSavebook(event)">
 
         <div class="form-group fadeInLeft wow " data-wow-delay="0s">
           <label for="name">نوع الوعاء</label>
@@ -189,29 +189,50 @@
 
         <div class="form-group fadeInLeft wow " data-wow-delay="0s">
           <label for="name">المؤلف</label>
-          <input type="text" class="form-control" placeholder="برجاء ادخال المؤلف" formControlName="author" [ngClass]="{
+          <!-- <input type="text" class="form-control" placeholder="برجاء ادخال المؤلف" formControlName="author" [ngClass]="{
             'is-valid': !author().invalid && author().dirty,
             'is-invalid': author().invalid && author().dirty
-          }">
+          }"> -->
+          <select class="selectpicker authors-list" multiple data-live-search="true" data-width="100%" name="author[]"
+            data-none-results-text="اضغط زر الادخال لادراج مؤلف جديد"
+            data-none-selected-text="برجاء ادخال مؤلفا"
+            >
+              
+              <option *ngFor="let author of authors">{{author.name}}</option>
+          </select>
           <div class="mt-1" *ngIf="author().errors?.required && author().dirty">هذا الادخال مطلوب</div>
         </div>
 
         <div class="form-group fadeInLeft wow " data-wow-delay="0s">
           <label for="name">المحقق</label>
-          <input type="text" class="form-control" placeholder="برجاء ادخال المحقق" formControlName="reviewer" [ngClass]="{
+          <!-- <input type="text" class="form-control" placeholder="برجاء ادخال المحقق" formControlName="reviewer" [ngClass]="{
             'is-valid': !reviewer().invalid && reviewer().dirty,
             'is-invalid': reviewer().invalid && reviewer().dirty
-          }">
+          }"> -->
+          <select class="selectpicker reviewers-list" multiple data-live-search="true" data-width="100%" name="reviewer[]"
+            data-none-results-text="اضغط زر الادخال لادراج مراجع جديد"
+            data-none-selected-text="برجاء ادخال مراجعا"
+            >
+              
+              <option *ngFor="let reviewer of reviewers">{{reviewer.name}}</option>
+          </select>
           <div class="mt-1" *ngIf="reviewer().errors?.required && reviewer().dirty">هذا الادخال مطلوب</div>
         </div>
 
         <div class="form-group fadeInLeft wow " data-wow-delay="0s">
           <label for="name">الناشر</label>
-          <input type="text" class="form-control" placeholder="برجاء ادخال الناشر" formControlName="publishers"
+          <!-- <input type="text" class="form-control" placeholder="برجاء ادخال الناشر" formControlName="publishers"
             [ngClass]="{
             'is-valid': !publishers().invalid && publishers().dirty,
             'is-invalid': publishers().invalid && publishers().dirty
-          }">
+          }"> -->
+          <select class="selectpicker publishers-list" multiple data-live-search="true" data-width="100%" name="publisher[]"
+            data-none-results-text="اضغط زر الادخال لادراج ناشر جديد"
+            data-none-selected-text="برجاء ادخال ناشرا"
+            >
+              
+              <option *ngFor="let p of publisher">{{p.name}}</option>
+          </select>
           <div class="mt-1" *ngIf="publishers().errors?.required && publishers().dirty">هذا الادخال مطلوب</div>
         </div>
 
@@ -346,7 +367,7 @@
         </div>
 
         <div class="form-group fadeInLeft wow" data-wow-delay="0s">
-          <button type="submit" [disabled]="form.invalid">تأكيد الطلب</button>
+          <button type="button" (click)="onSavebook()" [disabled]="form.invalid">تأكيد الطلب</button>
           <div class="mt-1" *ngIf="form.invalid">كل الحقول مطلوبة</div>
         </div>
       </form>

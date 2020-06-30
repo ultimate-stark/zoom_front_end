@@ -169,10 +169,15 @@
           <td [routerLink]="['/bookDetails', book.id]">
             {{ (book.title.length > 30) ? (book.title | slice:0:30) + '...' : book.title }}</td>
           <td [routerLink]="['/bookDetails', book.id]">
-            {{ (book.author.length > 30) ? (book.author | slice:0:30) + '...' : book.author }}</td>
+            <div class="badge badge-primary mx-1" *ngFor="let author of book.authors">
+              {{ (author.name.length > 30) ? (author.name | slice:0:30) + '...' : author.name }}
+            </div>
+          </td>
 
-          <td [routerLink]="['/admin/books/edit', book.id]" title="تعديل الكتاب">
-            <i class="far fa-edit"></i>
+          <td title="تعديل الكتاب">
+            <a [href]="'/admin/books/edit/' + book.id">
+              <i class="far fa-edit"></i>
+            </a>
           </td>
           <td (click)="onDelete(modal, book.id, book.title)" title="ازالة الكتاب">
             <i class="far fa-trash-alt"></i>

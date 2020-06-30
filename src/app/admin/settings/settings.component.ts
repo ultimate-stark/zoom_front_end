@@ -1,13 +1,16 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
-import { FilesService } from "./add-files.service";
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { HttpClient, HttpEventType } from "@angular/common/http";
+import { environment } from "../../../environments/environment";
+
+
 @Component({
-  selector: 'app-add-files',
-  templateUrl: './add-files.component.html',
-  styleUrls: ['./add-files.component.scss']
+  selector: 'app-settings',
+  templateUrl: './settings.component.html',
+  styleUrls: ['./settings.component.scss']
 })
-export class AddFilesComponent implements OnInit {
+export class Settings implements OnInit {
 
   @ViewChild('file', { static: true }) file: ElementRef;
   @ViewChild('textFile', { static: true }) textFile: ElementRef;
@@ -18,7 +21,7 @@ export class AddFilesComponent implements OnInit {
   isUploading: boolean = false;
   percentage: number = 0;
   err: boolean = true;
-  constructor(private FilesService: FilesService, private toastr: ToastrService, private router: Router) { }
+  constructor(private http: HttpClient , private toastr: ToastrService, private router: Router) { }
 
   ngOnInit() {
     let file = (this.file.nativeElement as HTMLElement);
@@ -68,14 +71,16 @@ export class AddFilesComponent implements OnInit {
       icon = (this.icon.nativeElement as HTMLElement),
       error = (this.error.nativeElement as HTMLElement),
       result = (this.result.nativeElement as HTMLElement);
-
-    if (!name.endsWith('.xlsx')) {
+    let extensions = ['jpg' , 'svg' , 'png' , 'jpeg']
+    let extension = name.split('.')[name.split('.').length - 1]
+    console.log(extension)
+    if (! extensions.includes(extension) ) {
       this.err = true;
       fileHtml.classList.add('animate-book');
       icon.classList.replace('fa-book', 'fa-exclamation-triangle');
       error.removeAttribute('hidden');
       result.innerHTML = ``;
-    } else if (name.endsWith('.xlsx')) {
+    } else if (extensions.includes(extension)) {
       this.err = false;
       fileHtml.classList.add('animate-book');
       icon.classList.replace('fa-exclamation-triangle', 'fa-book');
@@ -91,28 +96,19 @@ export class AddFilesComponent implements OnInit {
 
 
   addFileFN(file: File) {
-    this.FilesService.addFile(file).subscribe(response => {
+    const BACKEND_URL = environment.apiUrl + "/logo/upload-logo";
+    const logo = new FormData();
+    logo.append("logo", file, file.name);
+    this.http.post(BACKEND_URL, logo, {
+      observe: 'events'
+    }).subscribe(response => {
       if (response.type == 0) {
         this.isUploading = true;
       } else if (response.type == 4) {
-        setTimeout(() => {
-          console.log(this.percentage)
-          this.percentage = 33
-        } , 500)
-        setTimeout(() => {
-          console.log(this.percentage)
-          this.percentage = 75
-        } , 1500)
-        setTimeout(() => {
-          console.log(this.percentage)
-          this.percentage = 100
-        } , 2200)
-        setTimeout(() => {
-          this.isUploading = false;
-          let res: any = response;
-          this.toastr.success(`${res.body.message}`)
-          this.router.navigate(['/admin/books'])
-        } , 2300)
+        this.isUploading = false;
+        let res: any = response;
+        this.toastr.success(`${res.body.message}`)
+        window.location.href = '/admin/settings'
       }
     })
   }

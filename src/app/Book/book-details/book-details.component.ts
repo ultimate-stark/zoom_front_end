@@ -24,6 +24,7 @@ export class BookDetailsComponent implements OnInit {
   bookSoundLength: number;
   bookDetails: Book;
   public result: any;
+  src: String;  
   private searchedBooksSub: Subscription;
 
   // كتب ذات اضافات
@@ -60,39 +61,42 @@ export class BookDetailsComponent implements OnInit {
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       if (paramMap.has("bookId")) {
         this.bookId = paramMap.get("bookId");
+        this.booksService.getBook(this.bookId).subscribe(bookData => {
+          this.book = {
+            id: bookData.book._id,
+            type: bookData.book.type,
+            title: bookData.book.title,
+            author: bookData.book.authors,
+            reviewer: bookData.book.reviewers,
+            publishers: bookData.book.publishers,
+            publicationDate: bookData.book.publicationDate,
+            publicationCountry: bookData.book.publicationCountry,
+            publicationCity: bookData.book.publicationCity,
+            edition: bookData.book.edition,
+            parts: bookData.book.parts,
+            papers: bookData.book.papers,
+            file: bookData.book.file,
+            category: bookData.book.category,
+            subCategory: bookData.book.subCategory,
+            subject: bookData.book.subject,
+            comments: bookData.book.comments,
+            coverImage: bookData.book.coverImage[0].coverImageUrl ,
+            sound:bookData.book.sound,
+            // @ts-ignore
+            related_books: bookData.related_books,
+            related_papers: bookData.related_papers,
+            // @ts-ignore
+            other_versions: bookData.other_versions
+          }
+          this.src =  BACKEND_link  
+          console.log(this.book)
+          console.log(this.book.coverImage)
+          console.log(this.book)
+          this.bookSoundLength = this.book.sound.length;
+          this.booksService.isLoading = false;
+        });
         // setTimeout(() => {
-          this.booksService.getBook(this.bookId).subscribe(bookData => {
-            this.book = {
-              id: bookData._id,
-              type: bookData.type,
-              title: bookData.title,
-              author: bookData.author,
-              reviewer: bookData.reviewer,
-              publishers: bookData.publishers,
-              publicationDate: bookData.publicationDate,
-              publicationCountry: bookData.publicationCountry,
-              publicationCity: bookData.publicationCity,
-              edition: bookData.edition,
-              parts: bookData.parts,
-              papers: bookData.papers,
-              file: bookData.file,
-              category: bookData.category,
-              subCategory: bookData.subCategory,
-              subject: bookData.subject,
-              comments: bookData.comments,
-              coverImage:bookData.coverImage,
-              sound:bookData.sound
-            }
-            console.log(this.book)
-            console.log(this.book.coverImage)
-            console.log(this.book)
-            this.bookSoundLength = this.book.sound.length;
-            this.booksService.isLoading = false;
-            // this.elasticFNSameBooks(this.book.category ,this.book.type)
-            // this.elasticFNSameManuscript(this.book.category ,this.book.type)
-
-          });
-        // }, 3000)
+        // }, 1000)
       }
     });
     this.wowService.init();

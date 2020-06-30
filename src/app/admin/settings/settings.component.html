@@ -1,10 +1,13 @@
 <div class="wrapper rtl">
   <app-admin-layout></app-admin-layout>
   <div class="files">
-    <div class="container">
+    <div class="header mb-4">
+      <h6>1- صورة الموقع</h6>
+    </div>
+    <div>
       <div class="upload">
         <div class="dragg animated fadeIn error" #file>
-          <h5 #textFile>ارفق الملف</h5>
+          <p #textFile>ارفق صورة</p>
           <i class="fas fa-book" #icon></i>
         </div>
         <div class="file mt-3">
@@ -14,19 +17,14 @@
         </div>
       </div>
       <div class="result mt-3 animated fadeInLeft" #result></div>
-      <div class="error mt-3 animated fadeInLeft" hidden #error>يجب ادخال صيغة الاكسيل شيت</div>
+      <div class="error mt-3 animated fadeInLeft" hidden #error>يجب ادخال صوره من النوع png , jpeg , jpg , svg</div>
     </div>
   </div>
 </div>
 
 <div class="is-loading" *ngIf="isUploading == true">
   <div class="loading">
-    <div class="progress" style="width: 500px;">
-      <div class="progress-bar" role="progressbar" [style.width.%]="percentage" [attr.aria-valuenow]="percentage" aria-valuemin="0" aria-valuemax="100">
-        {{percentage}}
-      </div>
-    </div>
-    <!-- <h2>
+    <h2>
       برجاء الانتظار.. يتم رفع الكتاب الان
     </h2>
     <div class="lds-ellipsis">
@@ -34,6 +32,6 @@
       <div></div>
       <div></div>
       <div></div>
-    </div> -->
+    </div>
   </div>
 </div>

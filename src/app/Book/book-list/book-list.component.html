@@ -62,9 +62,12 @@
             <img [src]="book?.coverImage" [alt]="book?.title">
             <div class="content">
               <h4>{{book.title }}</h4>
-              <h6>{{ (book.category.length > 21) ? (book.category | slice:0:21) + '...' : book.category }}</h6>
-              <p> {{ (book.author.length > 25) ? (book.author | slice:0:25) + '...' : book.author }}
-              </p>
+              <div class="badge badge-primary mx-1" *ngFor="let category of book.category">
+                {{ (category.title > 21) ? (category.title | slice:0:21) + '...' : category.title }}
+              </div>
+              <div class="badge badge-primary mx-1" *ngFor="let author of book.authors">
+                {{ (author.name.length > 30) ? (author.name | slice:0:30) + '...' : author.name }}
+              </div>
             </div>
           </div>
         </div>

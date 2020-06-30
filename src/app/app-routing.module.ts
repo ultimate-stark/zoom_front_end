@@ -7,6 +7,7 @@ import { AuthGuard } from "./auth/auth.guard";
 import { NotFoundComponent } from './not-found/not-found.component';
 import { DashboardComponent } from "./admin/dashboard/dashboard.component";
 import { BookAdminComponent } from "./admin/book-admin/book-admin.component";
+import { Settings } from "./admin/settings/settings.component";
 import { UsersComponent } from "./admin/users/users.component";
 import { addAndEditBook } from "./admin/book-info/book-info.component";
 import { AddFilesComponent } from "./admin/add-files/add-files.component";
@@ -34,6 +35,7 @@ const routes: Routes = [
   { path: "admin/add-user", component: UserInfoComponent, canActivate: [NotUserGuard] },
   { path: "admin/edit-user/:userId", component: UserInfoComponent, canActivate: [NotUserGuard] },
   { path: "admin/change-logo", component: ChangeLogoComponent, canActivate: [NotUserGuard] },
+  { path: "admin/settings", component: Settings, canActivate: [NotUserGuard] },
   // Not Found
   { path: "**", component: NotFoundComponent }
 ];

@@ -17,13 +17,9 @@ $(document).ready(function () {
     })
   });
   picker.on('refreshed.bs.select', function () {
-    var input = $('.bootstrap-select input')
+    var self = $(this)
+    var input = self.parent().find('input')
     input.val('')
-  });
-
-  $(".custom-file-input").on("change", function () {
-    var fileName = $(this).val().split("\\").pop();
-    $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
   });
 
 })

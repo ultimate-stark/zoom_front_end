@@ -6,6 +6,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { AngularMaterialModule } from "../angular-material.module";
 import { BookListComponent } from './book-list/book-list.component';
 import { BookDetailsComponent } from './book-details/book-details.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+
 // Shimming Loading
 import { NgxShimmerLoadingModule } from 'ngx-shimmer-loading';
 @NgModule({
@@ -17,7 +19,8 @@ import { NgxShimmerLoadingModule } from 'ngx-shimmer-loading';
     FormsModule,
     NgxPaginationModule,
     AngularMaterialModule,
-    NgxShimmerLoadingModule
+    NgxShimmerLoadingModule,
+    PdfViewerModule
   ]
 })
 export class booksModule { }

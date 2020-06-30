@@ -1,8 +1,9 @@
 <nav class="navbar navbar-expand-lg fixed-top" #mainNavbar>
   <div class="container">
     <!-- <a class="navbar-brand animated fadeInDown" routerLink="">مكتبتي</a> -->
-    <a class="navbar-brand animated fadeInDown" routerLink=""><img src="./../../assets/imgs/book-01-01.png"
-        style="width:50px;height: 50px;" alt=""></a>
+    <a class="navbar-brand animated fadeInDown" routerLink="">
+      <img [src]="logo" style="width:50px;height: 50px;" alt="">
+      </a>
     <div class="burger animated fadeInDown" #burger (click)="toggleNav(burger, navbarCollapse)">
       <div class="burger-top"></div>
       <div class="burger-middle"></div>

@@ -3,6 +3,9 @@ import { Location } from '@angular/common';
 import { Router } from "@angular/router";
 import { AuthService } from "../auth/auth.service";
 import { Subscription } from "rxjs";
+import { HttpClient, HttpEventType } from "@angular/common/http";
+import { environment } from "../../environments/environment";
+
 
 @Component({
   selector: 'app-navbar',
@@ -11,6 +14,7 @@ import { Subscription } from "rxjs";
 })
 export class NavbarComponent implements OnInit, OnDestroy {
   userIsAuthenticated = false;
+  logo = './../../assets/imgs/book-01-01.png';
   private authListenerSubs: Subscription;
   adminPosition: boolean = false;
   @ViewChild('mainNavbar', { static: true }) mainNavbar: ElementRef;
@@ -22,7 +26,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   isShowingBtnOver: boolean = false;
   media = window.matchMedia("(max-width: 991px)");
   minMedia = window.matchMedia("(min-width: 992px)");
-  constructor(private location: Location, private router: Router, private authService: AuthService) { }
+  constructor(private http: HttpClient , private location: Location, private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.userIsAuthenticated = this.authService.getIsAuth();
@@ -33,6 +37,15 @@ export class NavbarComponent implements OnInit, OnDestroy {
       });
     let navbar = (this.mainNavbar.nativeElement as HTMLElement);
     let media = window.matchMedia("(max-width: 991px)");
+
+    this.http.get(environment.apiUrl + "/logo/get-logo", {
+      observe: 'events'
+    }).subscribe(response => {
+      let res: any = response;
+      if(res.body && res.body.logo){
+        this.logo = environment.imageurl + res.body.logo
+      }
+    })
 
     window.addEventListener('resize', () => {
       if (this.minMedia.matches) {

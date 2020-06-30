@@ -197,7 +197,6 @@
             data-none-results-text="اضغط زر الادخال لادراج مؤلف جديد"
             data-none-selected-text="برجاء ادخال مؤلفا"
             >
-              
               <option *ngFor="let author of authors">{{author.name}}</option>
           </select>
           <div class="mt-1" *ngIf="author().errors?.required && author().dirty">هذا الادخال مطلوب</div>
@@ -212,8 +211,7 @@
           <select class="selectpicker reviewers-list" multiple data-live-search="true" data-width="100%" name="reviewer[]"
             data-none-results-text="اضغط زر الادخال لادراج مراجع جديد"
             data-none-selected-text="برجاء ادخال مراجعا"
-            >
-              
+            >              
               <option *ngFor="let reviewer of reviewers">{{reviewer.name}}</option>
           </select>
           <div class="mt-1" *ngIf="reviewer().errors?.required && reviewer().dirty">هذا الادخال مطلوب</div>
@@ -297,30 +295,49 @@
 
         <div class="form-group fadeInLeft wow " data-wow-delay="0s">
           <label for="name">الرابط</label>
-          <input type="text" class="form-control" placeholder="برجاء ادخال الرابط" formControlName="file" [ngClass]="{
+          <!-- <input type="text" class="form-control" placeholder="برجاء ادخال الرابط" formControlName="file" [ngClass]="{
             'is-valid': !file().invalid && file().dirty,
             'is-invalid': file().invalid && file().dirty
-          }">
+          }"> -->
+          <select class="selectpicker links-list" multiple data-live-search="true" data-width="100%" name="link[]"
+            data-none-results-text="اضغط زر الادخال لادراج رابط جديد"
+            data-none-selected-text="برجاء ادخال رابط"
+            >
+              <option *ngFor="let i of links">{{i.link}}</option>
+          </select>
           <div class="mt-1" *ngIf="file().errors?.required && file().dirty">هذا الادخال مطلوب</div>
         </div>
 
         <div class="form-group fadeInLeft wow" data-wow-delay="0s">
           <label for="name">التصنيف</label>
-          <input type="text" placeholder="برجاء ادخال التصنيف " class="form-control" formControlName="category"
+          <!-- <input type="text" placeholder="برجاء ادخال التصنيف " class="form-control" formControlName="category"
             [ngClass]="{
             'is-valid': !category().invalid && category().dirty,
             'is-invalid': category().invalid && category().dirty
-          }">
+          }"> -->
+          <select class="selectpicker categories-list" multiple data-live-search="true" data-width="100%" name="category[]"
+            data-none-results-text="اضغط زر الادخال لادراج تصنيف جديد"
+            data-none-selected-text="برجاء ادخال تصنيف"
+            >
+              
+              <option *ngFor="let category of categories">{{category.name}}</option>
+          </select>
           <div class="mt-1" *ngIf="category().errors?.required && category().dirty">هذا الادخال مطلوب</div>
         </div>
 
         <div class="form-group fadeInLeft wow" data-wow-delay="0s">
           <label for="name">التصنيف الفرعي</label>
-          <input type="text" placeholder="برجاء ادخال التصنيف " class="form-control" formControlName="subCategory"
+          <!-- <input type="text" placeholder="برجاء ادخال التصنيف " class="form-control" formControlName="subCategory"
             [ngClass]="{
             'is-valid': !subCategory().invalid && subCategory().dirty,
             'is-invalid': subCategory().invalid && subCategory().dirty
-          }">
+          }"> -->
+          <select class="selectpicker sub-categories-list" multiple data-live-search="true" data-width="100%" name="sub_category[]"
+            data-none-results-text="اضغط زر الادخال لادراج تصنيف فرعي جديد"
+            data-none-selected-text="برجاء ادخال تصنيف فرعي"
+            >
+              <option *ngFor="let subCategory of subCategories">{{subCategory.name}}</option>
+          </select>
           <div class="mt-1" *ngIf="subCategory().errors?.required && subCategory().dirty">هذا الادخال مطلوب</div>
         </div>
 

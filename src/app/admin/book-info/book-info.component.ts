@@ -16,6 +16,7 @@ import * as $ from 'jquery';
   templateUrl: './book-info.component.html',
   styleUrls: ['./book-info.component.scss']
 })
+
 export class addAndEditBook implements OnInit {
   mainFile;
   new_Files = [];
@@ -31,6 +32,9 @@ export class addAndEditBook implements OnInit {
   authors: any;
   reviewers: any;
   publisher: any;
+  categorys: any;
+  subCategorys: any;
+  links: any;
   private bookId: string;
 
   constructor(
@@ -39,7 +43,7 @@ export class addAndEditBook implements OnInit {
     private wowService: NgwWowService,
     private router: Router,
     private toastr: ToastrService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.makeCreateForm();
@@ -53,9 +57,17 @@ export class addAndEditBook implements OnInit {
     this.booksService.getPublishers().subscribe((data: any) => {
       this.publisher = data.publishers
     })
+    this.booksService.getCategories().subscribe((data: any) => {
+      this.categorys = data.categories
+    })
+    this.booksService.getSubCategories().subscribe((data: any) => {
+      this.subCategorys = data.subCategories
+    })
+    this.booksService.getLinks().subscribe((data: any) => {
+      this.links = data.links
+    })
     this.wowService.init();
   }
-
   getBook() {
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       if (paramMap.has("bookId")) {
@@ -85,7 +97,6 @@ export class addAndEditBook implements OnInit {
             comments: bookData.comments,
             coverImage: bookData.coverImage,
             sound: bookData.sound
-
           };
           this.form.setValue({
             type: this.book.type,
@@ -225,14 +236,17 @@ export class addAndEditBook implements OnInit {
   }
 
   onSavebook() {
-    console.log()
     if (this.form.invalid) {
       return;
     }
     if (this.mode === "create") {
-      let authors = $('.selectpicker.authors-list').val().map(name => ({name}))
-      let reviewers = $('.selectpicker.reviewers-list').val().map(name => ({name}))
-      let publishers = $('.selectpicker.publishers-list').val().map(name => ({name}))
+      
+      let authors = $('.selectpicker.authors-list').val() ? $('.selectpicker.authors-list').val().map(name => ({ name })) : []
+      let reviewers =  $('.selectpicker.reviewers-list').val() ? $('.selectpicker.reviewers-list').val().map(name => ({ name })) : []
+      let publishers =  $('.selectpicker.publishers-list').val() ? $('.selectpicker.publishers-list').val().map(name => ({ name })) : []
+      let links =  $('.selectpicker.links-list').val() ? $('.selectpicker.links-list').val().map(link => ({ link })) : []
+      let categories =  $('.selectpicker.categories-list').val() ? $('.selectpicker.categories-list').val().map(title => ({ title })) : []
+      let subCategories =  $('.selectpicker.sub-categories-list').val() ? $('.selectpicker.sub-categories-list').val().map(title => ({ title })) : []
 
       this.booksService.addBook(
         this.form.value.type,
@@ -246,14 +260,13 @@ export class addAndEditBook implements OnInit {
         this.form.value.edition,
         this.form.value.parts,
         this.form.value.papers,
-        this.form.value.file,
-        this.form.value.category,
-        this.form.value.subCategory,
+        links,
+        categories,
+        subCategories,
         this.form.value.subject,
         this.form.value.comments,
         this.form.value.coverImage,
         this.form.value.sound
-
       ).subscribe(e => {
         if (e.type == 0) {
           this.isUploading = true;
@@ -264,9 +277,8 @@ export class addAndEditBook implements OnInit {
           console.log(this.title().value)
           this.router.navigate(['admin/books'])
         }
-        console.log(this.isUploading)
       })
-    } 
+    }
     else {
       this.booksService.updateBook(
         this.bookId,
@@ -290,8 +302,6 @@ export class addAndEditBook implements OnInit {
         this.form.value.sound
       );
     }
-    // this.form.reset();
+    this.form.reset();
   }
-
-
 }

@@ -1,17 +1,64 @@
 <div class="book-details rtl ">
   <div class="container">
+    <!-- <pdf-viewer [src]="src" [render-text]="true" style="display: block; height: 500px;position: fixed;z-index: 1000;"></pdf-viewer> -->
     <!--Start Book-->
     <div class="book" *ngIf="booksService.isLoading == false">
       <div class="book-img animated slideInRight">
-        <img [src]="'http://localhost:3000/images/'+book?.coverImage" [alt]="book?.title">
+        <img [src]="'http://localhost:3000/images/'+ book?.coverImage" [alt]="book?.title">
         <button class="btn btn-success" (click)="download(book.id)">تحميل الكتاب</button>
+        <a class="btn btn-warning mt-3" style="width: 100%;" [href]="src + book.file[0].name" target="_blank">اعرض الكتاب</a>
+        <!-- <button class="btn btn-danger" (click)="download(book.id)">اضف طبعه جديده من الكتاب</button> -->
       </div>
       <div class="about-book wow fadeIn" data-wow-duration="2s">
         <div class="about-book-child">
-          <h2 class="h1">{{book?.title}}</h2>
-          <span>{{book?.author}}</span><br>
-          <span>{{book?.category}}</span>
-          <p>{{book?.publicationCountry}}</p>
+          <h2 class="h1">{{book?.title}} | <small class="text-muted">{{book?.type}}</small></h2>
+          <div class="my-3">
+            الموضوع :
+            {{book?.subject}}
+          </div>
+          <div class="my-3">
+            المؤلفين :
+            <div class="badge badge-primary ml-1" *ngFor="let author of book?.authors">{{author.name}}</div>
+          </div>
+          <div class="my-3">
+            تاريخ النشر :
+            {{book?.publicationDate}}
+          </div>
+          <div class="my-3">
+            مكان النشر :
+            {{book?.publicationCountry}} | {{book?.publicationCity}}
+          </div>
+          <div class="my-3">
+            الناشرين :
+            <div class="badge badge-primary ml-1" *ngFor="let publisher of book?.publishers">{{publisher.name}}</div>
+          </div>
+          <div class="my-3">
+            الطبعه :
+            {{book?.edition}}
+          </div>
+          <div class="my-3">
+            الاجزاء :
+            {{book?.parts}}
+          </div>
+          <div class="my-3">
+            عدد الاوراق :
+            {{book?.papers}}
+          </div>
+          <div class="my-3">
+            التصنيفات :
+            <div class="badge badge-primary ml-1" *ngFor="let category of book?.category">{{category.title}}</div>
+          </div>
+          <div class="my-3">
+            التصنيفات الفرعية :
+            <div class="badge badge-primary ml-1" *ngFor="let subCategory of book?.subCategory">{{subCategory.title}}
+            </div>
+          </div>
+          <div class="my-3">
+            الروابط :
+            <div *ngFor="let file of book?.file">
+              <a [href]="file.link">{{file.link}}</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -38,48 +85,115 @@
     <div class="stepper animated slideInUp">
       <mat-tab-group>
         <mat-tab label="كتب ذات علاقه">
-          <!-- <mat-accordion class="aboutSearch">
-            <h4 *ngIf="booksWithAdditions.length == 0">لا يوجد كتب</h4>
-            <mat-expansion-panel *ngFor="let book of booksWithAdditions;">
+          <mat-accordion class="aboutSearch">
+            <h6 *ngIf="book?.related_books.length == 0">لا يوجد كتب</h6>
+            <mat-expansion-panel *ngFor="let book of book?.related_books;">
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   <div>
-                    <img [src]="'http://172.104.244.232:3000/images/'+book.coverImage" [alt]="book.title">
+                    <img [src]="'http://localhost:3000/images/'+ book?.coverImage[0].coverImageUrl">
                   </div>
                   <div class="about-search-header-content">
                     <h6>{{book.title}}</h6>
-                    <span>{{book.author}}</span>
+                    <div class="my-3">
+                      المؤلفين :
+                      <div class="badge badge-primary ml-1" *ngFor="let author of book?.authors">{{author.name}}</div>
+                    </div>
+                    <div class="my-3">
+                      الطبعه :
+                      {{book?.edition}}
+                    </div>
                   </div>
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <div class="content">
-                <h6>دار النشر</h6>
-                <p>{{ book.category }}</p>
+                <div class="my-3">
+                  مكان النشر :
+                  {{book?.publicationCountry}} | {{book?.publicationCity}}
+                  ,
+                  تاريخ النشر :
+                  {{book?.publicationDate}}
+                </div>
+                <div class="my-3">
+                  <a [href]="'http://localhost:4200/bookDetails/' + book?._id">انتقل الي صفحة الكتاب</a>
+                </div>
               </div>
             </mat-expansion-panel>
-          </mat-accordion> -->
+          </mat-accordion>
         </mat-tab>
         <mat-tab label="مخطوطات ذات علاقه">
-          <!-- <mat-accordion class="aboutSearch">
-            <h4 *ngIf="booksWithPlan.length == 0">لا يوجد كتب</h4>
-            <mat-expansion-panel *ngFor="let book of booksWithPlan;">
+          <mat-accordion class="aboutSearch">
+            <h6 *ngIf="book?.related_papers.length == 0">لا يوجد كتب</h6>
+            <mat-expansion-panel *ngFor="let book of book?.related_papers;">
               <mat-expansion-panel-header>
                 <mat-panel-title>
                   <div>
-                    <img [src]="'http://172.104.244.232:3000/images/'+book.coverImage" [alt]="book.img">
+                    <img [src]="'http://localhost:3000/images/' + book?.coverImage[0].coverImageUrl">
                   </div>
                   <div class="about-search-header-content">
                     <h6>{{book.title}}</h6>
-                    <span>{{book.author}}</span>
+                    <div class="my-3">
+                      المؤلفين :
+                      <div class="badge badge-primary ml-1" *ngFor="let author of book?.authors">{{author.name}}</div>
+                    </div>
+                    <div class="my-3">
+                      الطبعه :
+                      {{book?.edition}}
+                    </div>
                   </div>
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <div class="content">
-                <h6>عن الكتاب</h6>
-                <p>{{ book.publishers }}</p>
+                <div class="my-3">
+                  مكان النشر :
+                  {{book?.publicationCountry}} | {{book?.publicationCity}}
+                  ,
+                  تاريخ النشر :
+                  {{book?.publicationDate}}
+                </div>
+                <div class="my-3">
+                  <a [href]="'http://localhost:4200/bookDetails/' + book?._id">انتقل الي صفحة الكتاب</a>
+                </div>
               </div>
             </mat-expansion-panel>
-          </mat-accordion> -->
+          </mat-accordion>
+        </mat-tab>
+        <mat-tab label="طبعات اخري">
+          <mat-accordion class="aboutSearch">
+            <h6 *ngIf="book?.other_versions.length == 0">لا يوجد كتب</h6>
+            <mat-expansion-panel *ngFor="let book of book?.other_versions;">
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  <div>
+                    <img [src]="'http://localhost:3000/images/' + book?.coverImage[0].coverImageUrl">
+                  </div>
+                  <div class="about-search-header-content">
+                    <h6>{{book.title}}</h6>
+                    <div class="my-3">
+                      المؤلفين :
+                      <div class="badge badge-primary ml-1" *ngFor="let author of book?.authors">{{author.name}}</div>
+                    </div>
+                    <div class="my-3">
+                      الطبعه :
+                      {{book?.edition}}
+                    </div>
+                  </div>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="content">
+                <div class="my-3">
+                  مكان النشر :
+                  {{book?.publicationCountry}} | {{book?.publicationCity}}
+                  ,
+                  تاريخ النشر :
+                  {{book?.publicationDate}}
+                </div>
+                <div class="my-3">
+                  <a [href]="'http://localhost:4200/bookDetails/' + book?._id">انتقل الي صفحة الكتاب</a>
+                </div>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
         </mat-tab>
         <mat-tab label="تسجيلات صوتية">
           <!--Start Audios-->

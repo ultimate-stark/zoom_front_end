@@ -34,11 +34,12 @@ export class booksService {
       .pipe(map(bookData => {
         return {
           books: bookData.books.map(book => {
+            console.log(book)
             return {
               id: book._id,
               type: book.type,
               title: book.title,
-              author: book.author,
+              authors: book.authors,
               reviewer: book.reviewer,
               publishers: book.publishers,
               publicationDate: book.publicationDate,
@@ -52,7 +53,7 @@ export class booksService {
               subCategory: book.subCategory,
               subject: book.subject,
               comments: book.comments,
-              coverImage: BACKEND_link + book.coverImage,
+              coverImage: BACKEND_link + book.coverImage[0].coverImageUrl,
               sound: book.sound,
 
             };
@@ -77,9 +78,9 @@ export class booksService {
       _id: string;
       type: string;
       title: string;
-      author: string;
-      reviewer: string;
-      publishers: string;
+      author: any;
+      reviewer: any;
+      publishers: any;
       publicationDate: string;
       publicationCountry: string;
       publicationCity: string;
@@ -91,9 +92,11 @@ export class booksService {
       subCategory: string;
       subject: string;
       comments: string;
-      coverImage: string;
+      coverImage: any;
       sound: string;
-
+      related_books: any;
+      related_papers: any;
+      book: any;
     }>(BACKEND_URL + id);
   }
 
@@ -106,40 +109,43 @@ export class booksService {
   getPublishers(){
     return this.http.get(BACKEND_URL + 'get-publishers')
   }
+  getCategories(){
+    return this.http.get(BACKEND_URL + 'get-categories')
+  }
+  getSubCategories(){
+    return this.http.get(BACKEND_URL + 'get-subCategories')
+  }
+  getLinks(){
+    return this.http.get(BACKEND_URL + 'get-links')
+  }
 
   addBook(
     type: string,
     title: string,
     author: any,
-    reviewer: string,
-    publishers: string,
+    reviewers: any,
+    publishers: any,
     publicationDate: string,
     publicationCountry: string,
     publicationCity: string,
     edition: string,
     parts: string,
     papers: string,
-    file: string,
-    category: string,
-    subCategory: string,
+    file: any,
+    category: any,
+    subCategory: any,
     subject: string,
     comments: string,
-    coverImage:File,
+    coverImage: File,
     sound,
-
   ) {
-    console.log(sound)
-    console.log(edition)
-    console.log(parts)
-    console.log(file)
-    console.log(category)
-    console.log(coverImage)
 
     const bookData = new FormData();
+    
     bookData.append("type", type);
     bookData.append("title", title);
     bookData.append("author", JSON.stringify(author));
-    bookData.append("reviewer", JSON.stringify(reviewer));
+    bookData.append("reviewers", JSON.stringify(reviewers));
     bookData.append("publishers", JSON.stringify(publishers));
     bookData.append("publicationDate", publicationDate);
     bookData.append("publicationCountry", publicationCountry);
@@ -147,24 +153,23 @@ export class booksService {
     bookData.append("edition", edition);
     bookData.append("parts", parts);
     bookData.append("papers", papers);
-    bookData.append("file", file);
-    bookData.append("category", category);
-    bookData.append("subCategory", subCategory);
+    bookData.append("file", JSON.stringify(file));
+    bookData.append("category", JSON.stringify(category));
+    bookData.append("subCategory", JSON.stringify(subCategory));
     bookData.append("subject", subject);
     bookData.append("comments", comments);
-    bookData.append("coverImage", coverImage, title);
+    bookData.append("coverImage", coverImage);
+    
     sound.forEach(function (file) {
-      bookData.append("sound[]", file)
-
+      bookData.append("sound[]", file);
     })
 
-    console.log('sad');
     return this.http.post<{ message: string; book: Book }>(BACKEND_URL, bookData , {
       observe: 'events'
     })
+
   }
-
-
+  
   updateBook(
     id: string,
     type: string,

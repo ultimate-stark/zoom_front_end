@@ -42,6 +42,9 @@ import { CategoryBoxComponent } from './category-box/category-box.component';
 import { CategoryComponent } from './category/category.component';
 import { HomeComponent } from './home/home.component';
 import { ChangeLogoComponent } from './admin/change-logo/change-logo.component';
+import { Settings } from "./admin/settings/settings.component";
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+
 
 @NgModule({
   declarations: [
@@ -62,7 +65,8 @@ import { ChangeLogoComponent } from './admin/change-logo/change-logo.component';
     CategoryBoxComponent,
     CategoryComponent,
     HomeComponent,
-    ChangeLogoComponent
+    ChangeLogoComponent,
+    Settings
   ],
   imports: [
     BrowserModule,
@@ -76,7 +80,8 @@ import { ChangeLogoComponent } from './admin/change-logo/change-logo.component';
     NgwWowModule,
     NgbModule,
     ToastrModule.forRoot(),
-    NgxShimmerLoadingModule
+    NgxShimmerLoadingModule,
+    PdfViewerModule
   ],
   exports: [AdminLayoutComponent],
   providers: [
